@@ -2,8 +2,20 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*8 total records, newest first.*
+*20 total records, newest first.*
 
+- `2026-06-05T12:20:36Z` **outcome** [4af4c05364ed] → bet/f0ff2c8b699d result=partial
+- `2026-06-05T12:20:36Z` **outcome** [ffa50f3beb87] → bet/462a157409a2 result=fail
+- `2026-06-05T12:20:36Z` **outcome** [730dd9fae699] → bet/ebf4701f9cba result=fail
+- `2026-06-05T12:20:36Z` **outcome** [5ba7bc836fb3] → bet/226afdcfe161 result=success
+- `2026-06-05T12:20:36Z` **outcome** [ee19a2645bdf] → bet/97637694ecd7 result=success
+- `2026-06-05T12:20:25Z` **bet** [f0ff2c8b699d] [resolved/partial] a 4-model brain trust converging on a finding = strong epist
+- `2026-06-05T12:20:25Z` **bet** [462a157409a2] [resolved/fail] the §0a framing 'human gaps are harder so the main lever is 
+- `2026-06-05T12:20:25Z` **bet** [ebf4701f9cba] [resolved/fail] blind-dispatching the Hermes kanban dashboard plugin fix to 
+- `2026-06-05T12:20:25Z` **bet** [226afdcfe161] [resolved/success] the soma-platform monorepo cutover repoints both live sites 
+- `2026-06-05T12:20:25Z` **bet** [97637694ecd7] [resolved/success] Proteus ports to Levinese as a clean config-only drop-in of 
+- `2026-06-05T11:59:33Z` **artifact** [41d6c77abbc9] [report] https://docs.google.com/document/d/1nUKBj9QCyTyeA2P87bNwnLLVUe0Y6QaSWmv4B9eHSqc/edit
+- `2026-06-05T11:42:35Z` **artifact** [f28870d1dd3f] [report] /Users/mikewolf/Projects/SOMA/COGNITIVE-ARCHITECTURE.md
 - `2026-06-05T00:53:02Z` **lesson** [d5a5f40474ef] codex exec fails outside a git/trusted dir — use --skip-git-repo-check
 - `2026-06-05T00:52:46Z` **lesson** [0668d63e1f94]  fails outside a git/trusted dir — use --skip-git-repo-check
 - `2026-06-05T00:52:40Z` **lesson** [415f4c464af3] cc_dispatch workers stall on over-broad VPS-investigation prompts; give concrete

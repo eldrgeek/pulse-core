@@ -1,0 +1,33 @@
+# SCOREBOARD
+
+*Auto-generated 2026-06-05T12:21:32Z — do not hand-edit.*
+
+## Summary
+
+| Metric | Value |
+|--------|-------|
+| Total bets | 5 |
+| Resolved | 5 |
+| Open | 0 |
+| Hit rate (success / resolved) | 40% |
+| Mean Brier loss | 0.215 (lower = better calibrated) |
+| Successes / Partials / Fails | 2 / 1 / 2 |
+
+## By Author
+
+| Author | Resolved | Hit Rate | Mean Brier |
+|--------|----------|----------|------------|
+| Dee | 5 | 40% | 0.215 |
+
+## Overconfident Misses (confidence ≥ 0.6, result = fail)
+
+- **[462a157409a2]** conf=0.75 Brier=0.562
+  Claim: the §0a framing 'human gaps are harder so the main lever is more AI assistance' is sound architecture
+  Actual: all four brain-trust models independently flagged it as self-serving; more AI can atrophy/deepen the human gap; the real lever is better human-AI coupling WITH limits
+  Notes: the architecture caught one node's structural bias — the system working as designed
+
+- **[ebf4701f9cba]** conf=0.6 Brier=0.360
+  Claim: blind-dispatching the Hermes kanban dashboard plugin fix to a worker will succeed
+  Actual: two workers thrashed 7-16 min with zero writes; root cause was an undocumented internal-token auth layer
+  Notes: lesson: don't blind-dispatch undocumented-system spelunking; front-load diagnosis or do it hands-on; see lesson/415f4c464af3
+

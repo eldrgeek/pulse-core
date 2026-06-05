@@ -2,7 +2,29 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*3 records, newest first.*
+*5 records, newest first.*
+
+### [41d6c77abbc9] [report] https://docs.google.com/document/d/1nUKBj9QCyTyeA2P87bNwnLLVUe0Y6QaSWmv4B9eHSqc/edit
+*2026-06-05T11:59:33Z*
+
+Cognitive Architecture doc v1.1 (editable Google Doc, comment-shared)
+
+**Owner:** Dee
+
+
+---
+
+### [f28870d1dd3f] [report] /Users/mikewolf/Projects/SOMA/COGNITIVE-ARCHITECTURE.md
+*2026-06-05T11:42:35Z* confidence=0.6
+
+First-cut SOMA cognitive-architecture doc: team-as-distributed-mind, divergence/convergence thesis, component complementarity, system-survival (keep Mike healthy + add humans), function gap-map
+
+**Owner:** Dee
+
+**Next:** brain-trust widen+critique → v2
+
+
+---
 
 ### [50827769e54b] [report] ~/Projects/SOMA/state/braintrust-2026-06-bottleneck-tokens/SYNTHESIS.md
 *2026-06-05T00:52:34Z* confidence=1.0

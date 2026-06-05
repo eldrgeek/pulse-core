@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 pulse-mem — Pulse Core CLI
-Append-only decision/artifact/lesson memory store for SOMA.
+Append-only decision/artifact/lesson/bet memory store for SOMA.
 Zero external deps. Safe for concurrent callers via fcntl locking.
 """
 import argparse
@@ -19,6 +19,8 @@ INDEX_FILE = Path(__file__).parent / "INDEX.md"
 DECISIONS_FILE = Path(__file__).parent / "DECISIONS.md"
 ARTIFACTS_FILE = Path(__file__).parent / "ARTIFACTS.md"
 LESSONS_FILE = Path(__file__).parent / "LESSONS.md"
+BETS_FILE = Path(__file__).parent / "BETS.md"
+SCOREBOARD_FILE = Path(__file__).parent / "SCOREBOARD.md"
 
 
 def new_id():
@@ -61,12 +63,32 @@ def load_events():
     return events
 
 
+def _extract_bets(events):
+    """Return (bets_by_id, outcomes_by_bet_id) from a loaded event list."""
+    bets_by_id = {}
+    outcomes_by_bet = {}
+    for e in events:
+        if e.get("type") == "bet":
+            bets_by_id[e["id"]] = e
+        elif e.get("type") == "outcome":
+            outcomes_by_bet[e.get("bet_id")] = e
+    return bets_by_id, outcomes_by_bet
+
+
+RESULT_VALUES = {"success": 1.0, "partial": 0.5, "fail": 0.0}
+
+
+def _brier(confidence, result):
+    rv = RESULT_VALUES.get(result, 0.0)
+    return round((confidence - rv) ** 2, 4)
+
+
 def reindex():
     events = load_events()
-    # Newest first
     events_rev = list(reversed(events))
+    bets_by_id, outcomes_by_bet = _extract_bets(events)
 
-    by_type = {"decision": [], "artifact": [], "lesson": []}
+    by_type = {"decision": [], "artifact": [], "lesson": [], "bet": [], "outcome": []}
     for e in events_rev:
         t = e.get("type")
         if t in by_type:
@@ -128,6 +150,38 @@ def reindex():
             lines += [f"**Source:** {e['source']}", ""]
         return "\n".join(lines)
 
+    def fmt_bet(e):
+        outcome = outcomes_by_bet.get(e["id"])
+        conf = e.get("confidence", "?")
+        if outcome:
+            brier = _brier(conf, outcome.get("result", "")) if isinstance(conf, float) else "?"
+            status = f"RESOLVED/{outcome.get('result','?').upper()} Brier={brier}"
+        else:
+            status = "OPEN"
+        lines = [
+            f"### [{e['id']}] {status} confidence={conf}",
+            f"*{e['ts']}*",
+            "",
+            f"**Claim:** {e.get('claim', '')}",
+            "",
+            f"**Criteria:** {e.get('criteria', '')}",
+            "",
+        ]
+        if e.get("author"):
+            lines += [f"**Author:** {e['author']}", ""]
+        if e.get("horizon"):
+            lines += [f"**Horizon:** {e['horizon']}", ""]
+        if e.get("links"):
+            lines += [f"**Links:** {e['links']}", ""]
+        if outcome:
+            lines += [
+                f"**Actual:** {outcome.get('actual', '')}",
+                "",
+            ]
+            if outcome.get("notes"):
+                lines += [f"**Notes:** {outcome['notes']}", ""]
+        return "\n".join(lines)
+
     def write_section_file(path, title, type_key, formatter):
         items = by_type[type_key]
         with open(path, "w") as f:
@@ -143,6 +197,7 @@ def reindex():
     write_section_file(DECISIONS_FILE, "Decisions", "decision", fmt_decision)
     write_section_file(ARTIFACTS_FILE, "Artifacts", "artifact", fmt_artifact)
     write_section_file(LESSONS_FILE, "Lessons", "lesson", fmt_lesson)
+    write_section_file(BETS_FILE, "Bets", "bet", fmt_bet)
 
     # INDEX.md: all types, newest first
     with open(INDEX_FILE, "w") as f:
@@ -162,9 +217,148 @@ def reindex():
                     label = f"[{e.get('kind','?')}] {e.get('ref','')}"
                 elif t == "lesson":
                     label = e.get("what", "")[:80]
+                elif t == "bet":
+                    outcome = outcomes_by_bet.get(eid)
+                    status = "open" if outcome is None else f"resolved/{outcome.get('result','?')}"
+                    label = f"[{status}] {e.get('claim','')[:60]}"
+                elif t == "outcome":
+                    label = f"→ bet/{e.get('bet_id','?')} result={e.get('result','?')}"
                 else:
                     label = str(e)
                 f.write(f"- `{ts}` **{t}** [{eid}] {label}\n")
+
+    _write_scoreboard(events, bets_by_id, outcomes_by_bet)
+
+
+def _write_scoreboard(events=None, bets_by_id=None, outcomes_by_bet=None):
+    if events is None:
+        events = load_events()
+    if bets_by_id is None or outcomes_by_bet is None:
+        bets_by_id, outcomes_by_bet = _extract_bets(events)
+
+    now = now_iso()
+    resolved = []
+    open_bets = []
+    needs_scoring = []
+
+    for bid, bet in bets_by_id.items():
+        outcome = outcomes_by_bet.get(bid)
+        if outcome:
+            conf = bet.get("confidence", 0.5)
+            result = outcome.get("result", "fail")
+            rv = RESULT_VALUES.get(result, 0.0)
+            resolved.append({
+                "bet": bet,
+                "outcome": outcome,
+                "result_value": rv,
+                "brier": _brier(conf, result),
+            })
+        else:
+            open_bets.append(bet)
+            horizon = bet.get("horizon", "")
+            if horizon and horizon < now[:10]:
+                needs_scoring.append(bet)
+
+    total = len(bets_by_id)
+    n_resolved = len(resolved)
+    n_open = len(open_bets)
+    successes = [r for r in resolved if r["result_value"] == 1.0]
+    partials = [r for r in resolved if r["result_value"] == 0.5]
+    fails = [r for r in resolved if r["result_value"] == 0.0]
+    hit_rate = len(successes) / n_resolved if n_resolved else 0.0
+    mean_brier = sum(r["brier"] for r in resolved) / n_resolved if n_resolved else 0.0
+
+    by_author = {}
+    for r in resolved:
+        author = r["bet"].get("author", "unknown")
+        if author not in by_author:
+            by_author[author] = {"hits": 0, "total": 0, "brier_sum": 0.0}
+        by_author[author]["total"] += 1
+        by_author[author]["brier_sum"] += r["brier"]
+        if r["result_value"] == 1.0:
+            by_author[author]["hits"] += 1
+
+    overconfident = sorted(
+        [r for r in resolved if r["result_value"] == 0.0 and r["bet"].get("confidence", 0) >= 0.6],
+        key=lambda r: -r["bet"].get("confidence", 0),
+    )
+
+    lines = [
+        "# SCOREBOARD",
+        "",
+        f"*Auto-generated {now} — do not hand-edit.*",
+        "",
+        "## Summary",
+        "",
+        "| Metric | Value |",
+        "|--------|-------|",
+        f"| Total bets | {total} |",
+        f"| Resolved | {n_resolved} |",
+        f"| Open | {n_open} |",
+        f"| Hit rate (success / resolved) | {hit_rate:.0%} |",
+        f"| Mean Brier loss | {mean_brier:.3f} (lower = better calibrated) |",
+        f"| Successes / Partials / Fails | {len(successes)} / {len(partials)} / {len(fails)} |",
+        "",
+    ]
+
+    if by_author:
+        lines += [
+            "## By Author",
+            "",
+            "| Author | Resolved | Hit Rate | Mean Brier |",
+            "|--------|----------|----------|------------|",
+        ]
+        for author, stats in sorted(by_author.items()):
+            hr = stats["hits"] / stats["total"] if stats["total"] else 0.0
+            mb = stats["brier_sum"] / stats["total"] if stats["total"] else 0.0
+            lines.append(f"| {author} | {stats['total']} | {hr:.0%} | {mb:.3f} |")
+        lines.append("")
+
+    if overconfident:
+        lines += ["## Overconfident Misses (confidence ≥ 0.6, result = fail)", ""]
+        for r in overconfident:
+            bet = r["bet"]
+            outcome = r["outcome"]
+            lines += [
+                f"- **[{bet['id']}]** conf={bet.get('confidence','?')} Brier={r['brier']:.3f}",
+                f"  Claim: {bet.get('claim','')}",
+                f"  Actual: {outcome.get('actual','')}",
+                f"  Notes: {outcome.get('notes','')}",
+                "",
+            ]
+
+    if needs_scoring:
+        lines += ["## Needs Scoring (open, past horizon)", ""]
+        for bet in needs_scoring:
+            lines += [
+                f"- **[{bet['id']}]** horizon={bet.get('horizon','')} conf={bet.get('confidence','?')}",
+                f"  {bet.get('claim','')}",
+                "",
+            ]
+
+    if open_bets:
+        lines += ["## Open Bets", ""]
+        for bet in open_bets:
+            lines += [
+                f"- **[{bet['id']}]** conf={bet.get('confidence','?')} author={bet.get('author','?')}",
+                f"  {bet.get('claim','')}",
+                f"  horizon: {bet.get('horizon','none')}",
+                "",
+            ]
+
+    content = "\n".join(lines) + "\n"
+    with open(SCOREBOARD_FILE, "w") as f:
+        f.write(content)
+
+    return {
+        "total": total,
+        "resolved": n_resolved,
+        "open": n_open,
+        "hit_rate": hit_rate,
+        "mean_brier": mean_brier,
+        "overconfident": overconfident,
+        "needs_scoring": needs_scoring,
+    }
 
 
 # ── subcommand handlers ────────────────────────────────────────────────────────
@@ -227,6 +421,141 @@ def cmd_lesson_add(args):
     print(f"lesson/{eid}")
 
 
+def cmd_bet_add(args):
+    record = {
+        "type": "bet",
+        "claim": args.claim,
+        "criteria": args.criteria,
+        "confidence": args.confidence,
+        "status": "open",
+    }
+    if args.author:
+        record["author"] = args.author
+    if args.links:
+        record["links"] = args.links
+    if args.horizon:
+        record["horizon"] = args.horizon
+    eid = append_event(record)
+    reindex()
+    print(f"bet/{eid}")
+
+
+def cmd_bet_score(args):
+    events = load_events()
+    bets_by_id, outcomes_by_bet = _extract_bets(events)
+
+    bet_id = args.bet_id
+    if bet_id not in bets_by_id:
+        print(f"Error: no bet with id '{bet_id}'", file=sys.stderr)
+        sys.exit(1)
+    if bet_id in outcomes_by_bet:
+        existing = outcomes_by_bet[bet_id]
+        print(f"Error: bet/{bet_id} already scored as '{existing.get('result')}' (outcome/{existing['id']})", file=sys.stderr)
+        sys.exit(1)
+
+    bet = bets_by_id[bet_id]
+    conf = bet.get("confidence", 0.5)
+    brier = _brier(conf, args.result)
+
+    record = {
+        "type": "outcome",
+        "bet_id": bet_id,
+        "result": args.result,
+        "actual": args.actual,
+        "brier": brier,
+    }
+    if args.notes:
+        record["notes"] = args.notes
+
+    oid = append_event(record)
+    reindex()
+    print(f"outcome/{oid}  bet/{bet_id} → {args.result}  Brier={brier:.4f}")
+
+
+def cmd_bet_list(args):
+    events = load_events()
+    bets_by_id, outcomes_by_bet = _extract_bets(events)
+
+    bets = [e for e in reversed(events) if e.get("type") == "bet"]
+    if args.open:
+        bets = [b for b in bets if b["id"] not in outcomes_by_bet]
+
+    for bet in bets:
+        bid = bet["id"]
+        outcome = outcomes_by_bet.get(bid)
+        conf = bet.get("confidence", "?")
+        if outcome:
+            status = f"resolved/{outcome.get('result','?')}"
+        else:
+            status = "open"
+        print(f"{bet['ts']}  bet [{bid}] conf={conf} [{status}]")
+        print(f"  {bet.get('claim','')}")
+    print(f"\n{len(bets)} bet(s)")
+
+
+def cmd_scoreboard(args):
+    stats = _write_scoreboard()
+    events = load_events()
+    bets_by_id, outcomes_by_bet = _extract_bets(events)
+
+    resolved = []
+    for bid, bet in bets_by_id.items():
+        outcome = outcomes_by_bet.get(bid)
+        if outcome:
+            conf = bet.get("confidence", 0.5)
+            result = outcome.get("result", "fail")
+            rv = RESULT_VALUES.get(result, 0.0)
+            resolved.append({
+                "bet": bet, "outcome": outcome,
+                "result_value": rv,
+                "brier": _brier(conf, result),
+            })
+
+    overconfident = sorted(
+        [r for r in resolved if r["result_value"] == 0.0 and r["bet"].get("confidence", 0) >= 0.6],
+        key=lambda r: -r["bet"].get("confidence", 0),
+    )
+
+    if args.json:
+        print(json.dumps({
+            "total": stats["total"],
+            "resolved": stats["resolved"],
+            "open": stats["open"],
+            "hit_rate": round(stats["hit_rate"], 4),
+            "mean_brier": round(stats["mean_brier"], 4),
+            "overconfident_misses": [
+                {"id": r["bet"]["id"], "confidence": r["bet"].get("confidence"), "brier": r["brier"]}
+                for r in overconfident
+            ],
+        }))
+        return
+
+    n_resolved = stats["resolved"]
+    successes = [r for r in resolved if r["result_value"] == 1.0]
+    partials = [r for r in resolved if r["result_value"] == 0.5]
+    fails = [r for r in resolved if r["result_value"] == 0.0]
+
+    print(f"SCOREBOARD  ({now_iso()})")
+    print(f"  Total bets:    {stats['total']}  (resolved: {n_resolved}, open: {stats['open']})")
+    print(f"  Hit rate:      {stats['hit_rate']:.0%}  ({len(successes)} success / {len(partials)} partial / {len(fails)} fail)")
+    print(f"  Mean Brier:    {stats['mean_brier']:.3f}  (0=perfect calibration, 0.25=random)")
+
+    if overconfident:
+        print(f"\n  Overconfident misses (conf ≥ 0.6, result = fail):")
+        for r in overconfident:
+            bet = r["bet"]
+            print(f"    [{bet['id']}] conf={bet.get('confidence')} Brier={r['brier']:.3f}")
+            print(f"      {bet.get('claim','')[:80]}")
+
+    needs = stats["needs_scoring"]
+    if needs:
+        print(f"\n  Needs scoring (open, past horizon): {len(needs)}")
+        for bet in needs:
+            print(f"    [{bet['id']}] horizon={bet.get('horizon','')}  {bet.get('claim','')[:70]}")
+
+    print(f"\n  SCOREBOARD.md written.")
+
+
 def cmd_query(args):
     events = load_events()
     results = list(reversed(events))  # newest first
@@ -256,6 +585,12 @@ def cmd_query(args):
             elif t == "lesson":
                 label = e.get("what", "")[:70]
                 extra = f"  apply: {e.get('apply','')[:60]}"
+            elif t == "bet":
+                label = e.get("claim", "")[:70]
+                extra = f"  conf={e.get('confidence','?')} author={e.get('author','?')}"
+            elif t == "outcome":
+                label = f"→ bet/{e.get('bet_id','?')} result={e.get('result','?')}"
+                extra = f"  Brier={e.get('brier','?')}"
             else:
                 label = str(e)[:70]
                 extra = ""
@@ -276,7 +611,7 @@ def cmd_reindex(_args):
 def build_parser():
     p = argparse.ArgumentParser(
         prog="pulse-mem",
-        description="Pulse Core memory store — decisions, artifacts, lessons.",
+        description="Pulse Core memory store — decisions, artifacts, lessons, bets.",
     )
     sub = p.add_subparsers(dest="command", required=True)
 
@@ -317,15 +652,40 @@ def build_parser():
     la.add_argument("--source", default="")
     la.add_argument("--supersedes", default="")
 
+    # bet
+    bet = sub.add_parser("bet", help="Bet operations (predictions + grading)")
+    bet_sub = bet.add_subparsers(dest="subcommand", required=True)
+
+    ba = bet_sub.add_parser("add", help="Record a prediction bet")
+    ba.add_argument("--claim", required=True, help="The prediction")
+    ba.add_argument("--criteria", required=True, help="How we'll know success")
+    ba.add_argument("--confidence", required=True, type=float, help="0.0–1.0")
+    ba.add_argument("--author", default="")
+    ba.add_argument("--links", default="", help="Comma-separated event IDs")
+    ba.add_argument("--horizon", default="", help="Date (YYYY-MM-DD) when to check")
+
+    bs = bet_sub.add_parser("score", help="Grade a bet against reality")
+    bs.add_argument("bet_id", help="ID of the bet to score")
+    bs.add_argument("--result", required=True, choices=["success", "partial", "fail"])
+    bs.add_argument("--actual", required=True, help="What actually happened")
+    bs.add_argument("--notes", default="", help="Lesson / why")
+
+    bl = bet_sub.add_parser("list", help="List bets")
+    bl.add_argument("--open", action="store_true", help="Show only unscored bets")
+
     # query
     q = sub.add_parser("query", help="Query the event log")
-    q.add_argument("--type", choices=["decision", "artifact", "lesson"])
+    q.add_argument("--type", choices=["decision", "artifact", "lesson", "bet", "outcome"])
     q.add_argument("--kind", choices=["map", "audit", "report", "dataset", "skill", "build"])
     q.add_argument("--text", help="Substring filter (case-insensitive)")
     q.add_argument("--json", action="store_true", help="Output raw JSON lines")
 
     # reindex
     sub.add_parser("reindex", help="Regenerate markdown indexes from events.jsonl")
+
+    # scoreboard
+    sb = sub.add_parser("scoreboard", help="Metacognition view: calibration + overconfident misses")
+    sb.add_argument("--json", action="store_true", help="Output raw JSON")
 
     return p
 
@@ -338,8 +698,14 @@ def main():
         "decision": lambda a: cmd_decision_add(a) if a.subcommand == "add" else None,
         "artifact": lambda a: cmd_artifact_add(a) if a.subcommand == "add" else None,
         "lesson": lambda a: cmd_lesson_add(a) if a.subcommand == "add" else None,
+        "bet": lambda a: {
+            "add": cmd_bet_add,
+            "score": cmd_bet_score,
+            "list": cmd_bet_list,
+        }.get(a.subcommand, lambda _: parser.print_help())(a),
         "query": cmd_query,
         "reindex": cmd_reindex,
+        "scoreboard": cmd_scoreboard,
     }
 
     fn = dispatch.get(args.command)
