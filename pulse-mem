@@ -1,0 +1,354 @@
+#!/usr/bin/env python3
+"""
+pulse-mem — Pulse Core CLI
+Append-only decision/artifact/lesson memory store for SOMA.
+Zero external deps. Safe for concurrent callers via fcntl locking.
+"""
+import argparse
+import fcntl
+import json
+import os
+import sys
+import uuid
+from datetime import datetime, timezone
+from pathlib import Path
+
+STORE_DIR = Path(__file__).parent / "store"
+EVENTS_FILE = STORE_DIR / "events.jsonl"
+INDEX_FILE = Path(__file__).parent / "INDEX.md"
+DECISIONS_FILE = Path(__file__).parent / "DECISIONS.md"
+ARTIFACTS_FILE = Path(__file__).parent / "ARTIFACTS.md"
+LESSONS_FILE = Path(__file__).parent / "LESSONS.md"
+
+
+def new_id():
+    return uuid.uuid4().hex[:12]
+
+
+def now_iso():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def append_event(record: dict):
+    STORE_DIR.mkdir(parents=True, exist_ok=True)
+    if "id" not in record:
+        record["id"] = new_id()
+    if "ts" not in record:
+        record["ts"] = now_iso()
+    line = json.dumps(record, separators=(",", ":")) + "\n"
+    with open(EVENTS_FILE, "a") as f:
+        fcntl.flock(f, fcntl.LOCK_EX)
+        try:
+            f.write(line)
+        finally:
+            fcntl.flock(f, fcntl.LOCK_UN)
+    return record["id"]
+
+
+def load_events():
+    if not EVENTS_FILE.exists():
+        return []
+    events = []
+    with open(EVENTS_FILE) as f:
+        for lineno, line in enumerate(f, 1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                events.append(json.loads(line))
+            except json.JSONDecodeError as e:
+                print(f"Warning: invalid JSON at line {lineno}: {e}", file=sys.stderr)
+    return events
+
+
+def reindex():
+    events = load_events()
+    # Newest first
+    events_rev = list(reversed(events))
+
+    by_type = {"decision": [], "artifact": [], "lesson": []}
+    for e in events_rev:
+        t = e.get("type")
+        if t in by_type:
+            by_type[t].append(e)
+
+    def fmt_decision(e):
+        sup = f" *(supersedes {e['supersedes']})*" if e.get("supersedes") else ""
+        rev = e.get("reversibility", "")
+        rev_badge = f" `{rev}`" if rev else ""
+        lines = [
+            f"### [{e['id']}] {e.get('title', '(untitled)')}{sup}{rev_badge}",
+            f"*{e['ts']}*",
+            "",
+        ]
+        if e.get("context"):
+            lines += [f"**Context:** {e['context']}", ""]
+        if e.get("options"):
+            lines += [f"**Options:** {e['options']}", ""]
+        if e.get("chosen"):
+            lines += [f"**Chosen:** {e['chosen']}", ""]
+        if e.get("rationale"):
+            lines += [f"**Rationale:** {e['rationale']}", ""]
+        if e.get("links"):
+            lines += [f"**Links:** {e['links']}", ""]
+        return "\n".join(lines)
+
+    def fmt_artifact(e):
+        sup = f" *(supersedes {e['supersedes']})*" if e.get("supersedes") else ""
+        conf = f" confidence={e['confidence']}" if e.get("confidence") is not None else ""
+        lines = [
+            f"### [{e['id']}] [{e.get('kind', '?')}] {e.get('ref', '(no ref)')}{sup}",
+            f"*{e['ts']}*{conf}",
+            "",
+        ]
+        if e.get("summary"):
+            lines += [e["summary"], ""]
+        if e.get("owner"):
+            lines += [f"**Owner:** {e['owner']}", ""]
+        if e.get("freshness"):
+            lines += [f"**Freshness:** {e['freshness']}", ""]
+        if e.get("next"):
+            lines += [f"**Next:** {e['next']}", ""]
+        return "\n".join(lines)
+
+    def fmt_lesson(e):
+        sup = f" *(supersedes {e['supersedes']})*" if e.get("supersedes") else ""
+        lines = [
+            f"### [{e['id']}]{sup}",
+            f"*{e['ts']}*",
+            "",
+            f"**What:** {e.get('what', '')}",
+            "",
+            f"**Why:** {e.get('why', '')}",
+            "",
+            f"**Apply:** {e.get('apply', '')}",
+            "",
+        ]
+        if e.get("source"):
+            lines += [f"**Source:** {e['source']}", ""]
+        return "\n".join(lines)
+
+    def write_section_file(path, title, type_key, formatter):
+        items = by_type[type_key]
+        with open(path, "w") as f:
+            f.write(f"# {title}\n\n")
+            f.write(f"*Auto-generated from store/events.jsonl — do not hand-edit.*\n\n")
+            f.write(f"*{len(items)} records, newest first.*\n\n")
+            if not items:
+                f.write("*(none)*\n")
+            else:
+                for e in items:
+                    f.write(formatter(e) + "\n\n---\n\n")
+
+    write_section_file(DECISIONS_FILE, "Decisions", "decision", fmt_decision)
+    write_section_file(ARTIFACTS_FILE, "Artifacts", "artifact", fmt_artifact)
+    write_section_file(LESSONS_FILE, "Lessons", "lesson", fmt_lesson)
+
+    # INDEX.md: all types, newest first
+    with open(INDEX_FILE, "w") as f:
+        f.write("# Pulse Core Index\n\n")
+        f.write("*Auto-generated from store/events.jsonl — do not hand-edit.*\n\n")
+        f.write(f"*{len(events)} total records, newest first.*\n\n")
+        if not events_rev:
+            f.write("*(empty)*\n")
+        else:
+            for e in events_rev:
+                t = e.get("type", "?")
+                eid = e.get("id", "?")
+                ts = e.get("ts", "?")
+                if t == "decision":
+                    label = e.get("title", "(untitled)")
+                elif t == "artifact":
+                    label = f"[{e.get('kind','?')}] {e.get('ref','')}"
+                elif t == "lesson":
+                    label = e.get("what", "")[:80]
+                else:
+                    label = str(e)
+                f.write(f"- `{ts}` **{t}** [{eid}] {label}\n")
+
+
+# ── subcommand handlers ────────────────────────────────────────────────────────
+
+def cmd_decision_add(args):
+    record = {
+        "type": "decision",
+        "title": args.title,
+        "context": args.context or "",
+        "options": args.options or "",
+        "chosen": args.chosen or "",
+        "rationale": args.rationale or "",
+    }
+    if args.reversibility:
+        record["reversibility"] = args.reversibility
+    if args.links:
+        record["links"] = args.links
+    if args.supersedes:
+        record["supersedes"] = args.supersedes
+    eid = append_event(record)
+    reindex()
+    print(f"decision/{eid}")
+
+
+def cmd_artifact_add(args):
+    record = {
+        "type": "artifact",
+        "kind": args.kind,
+        "ref": args.ref,
+        "summary": args.summary or "",
+    }
+    if args.freshness:
+        record["freshness"] = args.freshness
+    if args.owner:
+        record["owner"] = args.owner
+    if args.confidence is not None:
+        record["confidence"] = args.confidence
+    if args.next:
+        record["next"] = args.next
+    if args.supersedes:
+        record["supersedes"] = args.supersedes
+    eid = append_event(record)
+    reindex()
+    print(f"artifact/{eid}")
+
+
+def cmd_lesson_add(args):
+    record = {
+        "type": "lesson",
+        "what": args.what,
+        "why": args.why or "",
+        "apply": args.apply or "",
+    }
+    if args.source:
+        record["source"] = args.source
+    if args.supersedes:
+        record["supersedes"] = args.supersedes
+    eid = append_event(record)
+    reindex()
+    print(f"lesson/{eid}")
+
+
+def cmd_query(args):
+    events = load_events()
+    results = list(reversed(events))  # newest first
+
+    if args.type:
+        results = [e for e in results if e.get("type") == args.type]
+    if args.kind:
+        results = [e for e in results if e.get("kind") == args.kind]
+    if args.text:
+        needle = args.text.lower()
+        results = [e for e in results if needle in json.dumps(e).lower()]
+
+    if args.json:
+        for e in results:
+            print(json.dumps(e))
+    else:
+        for e in results:
+            t = e.get("type", "?")
+            eid = e.get("id", "?")
+            ts = e.get("ts", "?")
+            if t == "decision":
+                label = e.get("title", "(untitled)")
+                extra = f"  chosen: {e.get('chosen','')[:60]}"
+            elif t == "artifact":
+                label = f"[{e.get('kind','?')}] {e.get('ref','')}"
+                extra = f"  {e.get('summary','')[:60]}"
+            elif t == "lesson":
+                label = e.get("what", "")[:70]
+                extra = f"  apply: {e.get('apply','')[:60]}"
+            else:
+                label = str(e)[:70]
+                extra = ""
+            print(f"{ts}  {t:10s}  [{eid}]  {label}")
+            if extra.strip():
+                print(f"  {extra.strip()}")
+        print(f"\n{len(results)} record(s)")
+
+
+def cmd_reindex(_args):
+    reindex()
+    events = load_events()
+    print(f"Reindexed {len(events)} records.")
+
+
+# ── arg parsing ────────────────────────────────────────────────────────────────
+
+def build_parser():
+    p = argparse.ArgumentParser(
+        prog="pulse-mem",
+        description="Pulse Core memory store — decisions, artifacts, lessons.",
+    )
+    sub = p.add_subparsers(dest="command", required=True)
+
+    # decision
+    dec = sub.add_parser("decision", help="Decision operations")
+    dec_sub = dec.add_subparsers(dest="subcommand", required=True)
+    da = dec_sub.add_parser("add", help="Record a decision")
+    da.add_argument("--title", required=True)
+    da.add_argument("--context", default="")
+    da.add_argument("--options", default="")
+    da.add_argument("--chosen", default="")
+    da.add_argument("--rationale", default="")
+    da.add_argument("--reversibility", choices=["green", "yellow", "red"])
+    da.add_argument("--links", default="")
+    da.add_argument("--supersedes", default="")
+
+    # artifact
+    art = sub.add_parser("artifact", help="Artifact operations")
+    art_sub = art.add_subparsers(dest="subcommand", required=True)
+    aa = art_sub.add_parser("add", help="Register an artifact")
+    aa.add_argument("--kind", required=True,
+                    choices=["map", "audit", "report", "dataset", "skill", "build"])
+    aa.add_argument("--ref", required=True)
+    aa.add_argument("--summary", default="")
+    aa.add_argument("--freshness", default="")
+    aa.add_argument("--owner", default="")
+    aa.add_argument("--confidence", type=float)
+    aa.add_argument("--next", default="")
+    aa.add_argument("--supersedes", default="")
+
+    # lesson
+    les = sub.add_parser("lesson", help="Lesson operations")
+    les_sub = les.add_subparsers(dest="subcommand", required=True)
+    la = les_sub.add_parser("add", help="Record a lesson")
+    la.add_argument("--what", required=True)
+    la.add_argument("--why", default="")
+    la.add_argument("--apply", default="")
+    la.add_argument("--source", default="")
+    la.add_argument("--supersedes", default="")
+
+    # query
+    q = sub.add_parser("query", help="Query the event log")
+    q.add_argument("--type", choices=["decision", "artifact", "lesson"])
+    q.add_argument("--kind", choices=["map", "audit", "report", "dataset", "skill", "build"])
+    q.add_argument("--text", help="Substring filter (case-insensitive)")
+    q.add_argument("--json", action="store_true", help="Output raw JSON lines")
+
+    # reindex
+    sub.add_parser("reindex", help="Regenerate markdown indexes from events.jsonl")
+
+    return p
+
+
+def main():
+    parser = build_parser()
+    args = parser.parse_args()
+
+    dispatch = {
+        "decision": lambda a: cmd_decision_add(a) if a.subcommand == "add" else None,
+        "artifact": lambda a: cmd_artifact_add(a) if a.subcommand == "add" else None,
+        "lesson": lambda a: cmd_lesson_add(a) if a.subcommand == "add" else None,
+        "query": cmd_query,
+        "reindex": cmd_reindex,
+    }
+
+    fn = dispatch.get(args.command)
+    if fn:
+        fn(args)
+    else:
+        parser.print_help()
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
