@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*7 records, newest first.*
+*8 records, newest first.*
+
+### [5f1e0ca09244]
+*2026-06-05T19:47:10Z*
+
+**What:** Mike reported 4 'bugs' on the Ariadne extension + 1 on Legends; ALL were stale artifacts, not code defects. Extension: latest fixes were committed/on-disk but the auto-reload watcher (port 27183) wasn't running and the manifest change needed a full reload, so the OLD build was loaded — its symptoms exactly matched the reports. Legends: prod code was correct (Netlify Identity commented, SOMA Auth wired) but the browser had cached the pre-migration page.
+
+**Why:** I almost dispatched another round of blind code fixes for bugs that were already fixed. The symptoms matching a KNOWN-PRIOR build state is the tell.
+
+**Apply:** When a user reports symptoms that match a pre-fix state, FIRST verify the loaded/deployed artifact == committed code (grep on-disk extension, curl live prod) before treating it as a code bug. Auto-reload only works if the watcher is running — a manifest change always needs a full reload. Confirm artifact freshness, then debug.
+
+**Source:** session 2026-06-05
+
+
+---
 
 ### [496a34453a40]
 *2026-06-05T17:23:07Z*

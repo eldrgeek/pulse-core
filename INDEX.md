@@ -2,8 +2,9 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*45 total records, newest first.*
+*46 total records, newest first.*
 
+- `2026-06-05T19:47:10Z` **lesson** [5f1e0ca09244] Mike reported 4 'bugs' on the Ariadne extension + 1 on Legends; ALL were stale a
 - `2026-06-05T19:07:38Z` **bet** [9ee32d628af6] [open] Ariadne persists across same-domain navigations per tab+doma
 - `2026-06-05T18:42:43Z` **outcome** [3a187ac1ea94] → bet/ac231ba9aed7 result=success
 - `2026-06-05T18:42:43Z` **bet** [ac231ba9aed7] [resolved/success] Ariadne v2.1 fixes audio(gesture)+visible-nav+target-safety 
