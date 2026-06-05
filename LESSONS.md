@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*8 records, newest first.*
+*9 records, newest first.*
+
+### [31924b21e740]
+*2026-06-05T20:53:02Z*
+
+**What:** A cc_dispatch worker finished all edits (10 files, tests green on disk) but stalled before commit/deploy/report. Salvaged: killed it, ran the tests on the uncommitted state (242 pass), confirmed the key markers present, then committed+deployed myself.
+
+**Why:** Worker output is recoverable even when the worker stalls at finalization — don't re-dispatch the whole task; verify the on-disk state and finish it.
+
+**Apply:** On a stalled worker: check uncommitted changes + run the test gate; if coherent+green, commit/deploy yourself rather than redo.
+
+**Source:** session 2026-06-05
+
+
+---
 
 ### [5f1e0ca09244]
 *2026-06-05T19:47:10Z*

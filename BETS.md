@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*12 records, newest first.*
+*13 records, newest first.*
+
+### [d51ed62cbbf2] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
+*2026-06-05T20:53:02Z*
+
+**Claim:** Inference-first rethink ships: Bill answers from content, version marker, state-versioning, Ariadne ask-first
+
+**Criteria:** version marker live on CDN, tests green, answer verified
+
+**Author:** Dee
+
+**Actual:** SOMA_GUIDE_VERSION=2026-0605 live on CDN; soma-infer verified ('who is the chairman'→Greg Foster); 242 tests; salvaged final commit+deploy from a worker that stalled at finalize (verified coherent before deploying).
+
+
+---
 
 ### [9ee32d628af6] OPEN confidence=0.7
 *2026-06-05T19:07:38Z*

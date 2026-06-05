@@ -1,23 +1,23 @@
 # SCOREBOARD
 
-*Auto-generated 2026-06-05T19:47:10Z — do not hand-edit.*
+*Auto-generated 2026-06-05T20:53:02Z — do not hand-edit.*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Total bets | 12 |
-| Resolved | 11 |
+| Total bets | 13 |
+| Resolved | 12 |
 | Open | 1 |
-| Hit rate (success / resolved) | 64% |
-| Mean Brier loss | 0.162 (lower = better calibrated) |
-| Successes / Partials / Fails | 7 / 1 / 3 |
+| Hit rate (success / resolved) | 67% |
+| Mean Brier loss | 0.152 (lower = better calibrated) |
+| Successes / Partials / Fails | 8 / 1 / 3 |
 
 ## By Author
 
 | Author | Resolved | Hit Rate | Mean Brier |
 |--------|----------|----------|------------|
-| Dee | 11 | 64% | 0.162 |
+| Dee | 12 | 67% | 0.152 |
 
 ## Overconfident Misses (confidence ≥ 0.6, result = fail)
 

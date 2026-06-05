@@ -2,8 +2,11 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*46 total records, newest first.*
+*49 total records, newest first.*
 
+- `2026-06-05T20:53:02Z` **lesson** [31924b21e740] A cc_dispatch worker finished all edits (10 files, tests green on disk) but stal
+- `2026-06-05T20:53:02Z` **outcome** [ea53e8be78b4] → bet/d51ed62cbbf2 result=success
+- `2026-06-05T20:53:02Z` **bet** [d51ed62cbbf2] [resolved/success] Inference-first rethink ships: Bill answers from content, ve
 - `2026-06-05T19:47:10Z` **lesson** [5f1e0ca09244] Mike reported 4 'bugs' on the Ariadne extension + 1 on Legends; ALL were stale a
 - `2026-06-05T19:07:38Z` **bet** [9ee32d628af6] [open] Ariadne persists across same-domain navigations per tab+doma
 - `2026-06-05T18:42:43Z` **outcome** [3a187ac1ea94] → bet/ac231ba9aed7 result=success
