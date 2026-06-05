@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*8 records, newest first.*
+*9 records, newest first.*
+
+### [ee551f5a8f90] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
+*2026-06-05T17:23:06Z*
+
+**Claim:** The dispatched Yeshie nav fix restores working navigate+perceive through the relay
+
+**Criteria:** navigate to a URL completes in 1-3s and perceive reads the new page's url
+
+**Author:** Dee
+
+**Actual:** live verify: navigate example.com = 839ms (was 15s no-op), perceive url=https://example.com/. Worker fixed: step.url||step.value, stale run.tabId after open_tab, missing await; +3 regression tests, 721 pass.
+
+
+---
 
 ### [661dfd3c09e3] OPEN confidence=0.7
 *2026-06-05T17:21:51Z*

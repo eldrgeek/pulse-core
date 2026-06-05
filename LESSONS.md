@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*6 records, newest first.*
+*7 records, newest first.*
+
+### [496a34453a40]
+*2026-06-05T17:23:07Z*
+
+**What:** Part of my 'Yeshie nav is broken' diagnosis was a usage error: my payloads used step.value but the navigate/open_tab handlers only read step.url → url undefined → silent no-op. (Real bugs also existed: stale tabId after open_tab, missing await on tabs.update.)
+
+**Why:** I attributed 100% to 'Yeshie broken' when ~part was my own wrong field name — a non-mutating check of the handler's expected fields would have caught it faster.
+
+**Apply:** When a tool 'no-ops', check the handler's expected arg names against what you sent BEFORE concluding the tool is broken. The fix now accepts both url and value.
+
+**Source:** session 2026-06-05 yeshie nav fix
+
+
+---
 
 ### [fa3e997a30bb]
 *2026-06-05T17:11:16Z*
