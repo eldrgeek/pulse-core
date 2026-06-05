@@ -2,7 +2,27 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*5 records, newest first.*
+*7 records, newest first.*
+
+### [8cd5d2b8d181] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
+*2026-06-05T12:28:54Z*
+
+gdoc bridge v0: CLI for AIs to write attributed suggestions into shared Google Docs (Drive HTML approach, clasp OAuth); v1=per-AI service accounts
+
+**Owner:** Dee
+
+
+---
+
+### [87c0ed0cc1d2] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
+*2026-06-05T12:27:06Z*
+
+gdoc bridge (append-only, Docs API): AIs write attributed blocks into shared Google Docs; used to post the 4 brain-trust critiques into the cog-arch doc
+
+**Owner:** Dee
+
+
+---
 
 ### [41d6c77abbc9] [report] https://docs.google.com/document/d/1nUKBj9QCyTyeA2P87bNwnLLVUe0Y6QaSWmv4B9eHSqc/edit
 *2026-06-05T11:59:33Z*

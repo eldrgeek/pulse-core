@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*6 records, newest first.*
+*7 records, newest first.*
+
+### [105c1b4c359a] RESOLVED/SUCCESS Brier=0.01 confidence=0.9
+*2026-06-05T12:34:10Z*
+
+**Claim:** gdoc bridge can post attributed AI critiques into a shared Google Doc
+
+**Criteria:** 4 critiques land in the doc, verified by read-back
+
+**Author:** Dee
+
+**Actual:** all 4 brain-trust critiques + header appended and verified in the doc via the bridge
+
+
+---
 
 ### [df729965ee29] RESOLVED/FAIL Brier=0.49 confidence=0.7
 *2026-06-05T12:25:36Z*

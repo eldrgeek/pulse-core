@@ -2,8 +2,13 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*22 total records, newest first.*
+*27 total records, newest first.*
 
+- `2026-06-05T12:34:10Z` **outcome** [a8531e9310d8] → bet/105c1b4c359a result=success
+- `2026-06-05T12:34:10Z` **bet** [105c1b4c359a] [resolved/success] gdoc bridge can post attributed AI critiques into a shared G
+- `2026-06-05T12:34:10Z` **lesson** [9dcaa9fbd03e] The gdoc bridge write path WORKED all along (Drive export→mutate→PATCH with driv
+- `2026-06-05T12:28:54Z` **artifact** [8cd5d2b8d181] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
+- `2026-06-05T12:27:06Z` **artifact** [87c0ed0cc1d2] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
 - `2026-06-05T12:25:36Z` **outcome** [454d10749c81] → bet/df729965ee29 result=fail
 - `2026-06-05T12:25:36Z` **bet** [df729965ee29] [resolved/fail] The gdoc-bridge append/write path works on existing creds (c
 - `2026-06-05T12:20:36Z` **outcome** [4af4c05364ed] → bet/f0ff2c8b699d result=partial
