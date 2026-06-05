@@ -2,8 +2,10 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*20 total records, newest first.*
+*22 total records, newest first.*
 
+- `2026-06-05T12:25:36Z` **outcome** [454d10749c81] → bet/df729965ee29 result=fail
+- `2026-06-05T12:25:36Z` **bet** [df729965ee29] [resolved/fail] The gdoc-bridge append/write path works on existing creds (c
 - `2026-06-05T12:20:36Z` **outcome** [4af4c05364ed] → bet/f0ff2c8b699d result=partial
 - `2026-06-05T12:20:36Z` **outcome** [ffa50f3beb87] → bet/462a157409a2 result=fail
 - `2026-06-05T12:20:36Z` **outcome** [730dd9fae699] → bet/ebf4701f9cba result=fail

@@ -1,23 +1,23 @@
 # SCOREBOARD
 
-*Auto-generated 2026-06-05T12:21:32Z — do not hand-edit.*
+*Auto-generated 2026-06-05T12:25:36Z — do not hand-edit.*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Total bets | 5 |
-| Resolved | 5 |
+| Total bets | 6 |
+| Resolved | 6 |
 | Open | 0 |
-| Hit rate (success / resolved) | 40% |
-| Mean Brier loss | 0.215 (lower = better calibrated) |
-| Successes / Partials / Fails | 2 / 1 / 2 |
+| Hit rate (success / resolved) | 33% |
+| Mean Brier loss | 0.261 (lower = better calibrated) |
+| Successes / Partials / Fails | 2 / 1 / 3 |
 
 ## By Author
 
 | Author | Resolved | Hit Rate | Mean Brier |
 |--------|----------|----------|------------|
-| Dee | 5 | 40% | 0.215 |
+| Dee | 6 | 33% | 0.261 |
 
 ## Overconfident Misses (confidence ≥ 0.6, result = fail)
 
@@ -25,6 +25,11 @@
   Claim: the §0a framing 'human gaps are harder so the main lever is more AI assistance' is sound architecture
   Actual: all four brain-trust models independently flagged it as self-serving; more AI can atrophy/deepen the human gap; the real lever is better human-AI coupling WITH limits
   Notes: the architecture caught one node's structural bias — the system working as designed
+
+- **[df729965ee29]** conf=0.7 Brier=0.490
+  Claim: The gdoc-bridge append/write path works on existing creds (clasp OAuth)
+  Actual: Docs WRITE hangs on auth: clasp token is Apps-Script-scoped, not a Docs-write token; two workers stalled, a direct self-test hung
+  Notes: lesson: separate 'can create via Apps Script' from 'can append via Docs REST'; wire real Docs auth via Yeshie/clasp-AppsScript before relying on programmatic writes
 
 - **[ebf4701f9cba]** conf=0.6 Brier=0.360
   Claim: blind-dispatching the Hermes kanban dashboard plugin fix to a worker will succeed

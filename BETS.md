@@ -2,7 +2,25 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*5 records, newest first.*
+*6 records, newest first.*
+
+### [df729965ee29] RESOLVED/FAIL Brier=0.49 confidence=0.7
+*2026-06-05T12:25:36Z*
+
+**Claim:** The gdoc-bridge append/write path works on existing creds (clasp OAuth)
+
+**Criteria:** a worker can append text to the shared Doc without new auth
+
+**Author:** Dee
+
+**Horizon:** this session
+
+**Actual:** Docs WRITE hangs on auth: clasp token is Apps-Script-scoped, not a Docs-write token; two workers stalled, a direct self-test hung
+
+**Notes:** lesson: separate 'can create via Apps Script' from 'can append via Docs REST'; wire real Docs auth via Yeshie/clasp-AppsScript before relying on programmatic writes
+
+
+---
 
 ### [f0ff2c8b699d] RESOLVED/PARTIAL Brier=0.09 confidence=0.8
 *2026-06-05T12:20:25Z*
