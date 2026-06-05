@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*10 records, newest first.*
+*11 records, newest first.*
+
+### [ac231ba9aed7] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
+*2026-06-05T18:42:43Z*
+
+**Claim:** Ariadne v2.1 fixes audio(gesture)+visible-nav+target-safety without breaking Bill/Proteus
+
+**Criteria:** tests green + CDN engine updated + Legends renders
+
+**Author:** Dee
+
+**Actual:** soma-guide 199/199, perceive 19/19; audio now gesture-gated via Site Tour button; visible-nav filter; 0x0 highlight skip; CDN redeployed; Legends 200
+
+
+---
 
 ### [84f539d9f89b] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
 *2026-06-05T18:29:00Z*
