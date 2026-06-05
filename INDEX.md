@@ -2,8 +2,10 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*29 total records, newest first.*
+*31 total records, newest first.*
 
+- `2026-06-05T17:11:16Z` **lesson** [fa3e997a30bb] Mapping economics, real data point (WEC): SSR sites (Squarespace/Wix/WP) map ful
+- `2026-06-05T17:11:16Z` **artifact** [ca4abadb4e3f] [map] /Users/mikewolf/Projects/SOMA/state/wolf-ed/WEC-sitemap.md
 - `2026-06-05T17:04:54Z` **decision** [03369fe85492] Bill gets Yeshie's perceive engine (take the guts out), not a Yeshie dependency
 - `2026-06-05T17:04:54Z` **lesson** [04fcb83ee1d6] Yeshie's mapping capability splits cleanly: the PERCEIVE engine works well (stru
 - `2026-06-05T12:34:10Z` **outcome** [a8531e9310d8] → bet/105c1b4c359a result=success

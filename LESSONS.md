@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*5 records, newest first.*
+*6 records, newest first.*
+
+### [fa3e997a30bb]
+*2026-06-05T17:11:16Z*
+
+**What:** Mapping economics, real data point (WEC): SSR sites (Squarespace/Wix/WP) map fully via plain HTTP fetch — no browser needed. Consistent nav means 1 fetch yields the full URL list; ~1 fetch per unique page after. WEC mapped in ~4 fetches, negligible inference.
+
+**Why:** Confirms the brain-trust Scout→Sniper economics: cheap deterministic fetch first; browser only for JS-rendered/interactive pages.
+
+**Apply:** Bill's auto-mapper: fetch-first, detect SSR vs SPA (empty body = JS-rendered), escalate to browser perception only when needed. Predict cost from page count × (cheap if SSR / dearer if SPA).
+
+**Source:** WEC mapping 2026-06-05
+
+
+---
 
 ### [04fcb83ee1d6]
 *2026-06-05T17:04:54Z*

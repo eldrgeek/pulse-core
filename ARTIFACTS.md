@@ -2,7 +2,19 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*7 records, newest first.*
+*8 records, newest first.*
+
+### [ca4abadb4e3f] [map] /Users/mikewolf/Projects/SOMA/state/wolf-ed/WEC-sitemap.md
+*2026-06-05T17:11:16Z* confidence=0.8
+
+WEC (wolfeducationalconsulting.com) site map v1: nav tree, page purposes, conversion flow (call→intake→client form→match), resource-guide categories. Mapped via HTTP fetch (SSR).
+
+**Owner:** Dee
+
+**Next:** wolf-ed product logic (brain trust); port perceive to Bill
+
+
+---
 
 ### [8cd5d2b8d181] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
 *2026-06-05T12:28:54Z*
