@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*9 records, newest first.*
+*10 records, newest first.*
+
+### [84f539d9f89b] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
+*2026-06-05T18:29:00Z*
+
+**Claim:** SOMA Auth v1 (Supabase) ships on Legends without breaking prod
+
+**Criteria:** Legends prod renders + auth wired + reversible
+
+**Author:** Dee
+
+**Actual:** packages/auth (lib+schema+config) + 15 Legends pages migrated Netlify Identity→SOMA Auth magic-link, pushed; prod home verified HTTP 200 w/ content + auth wiring; graceful degradation + hardcoded admin allowlist fallback so Mike isn't locked out. Needs Mike: enable Email OTP, set redirect URLs, run schema.sql.
+
+
+---
 
 ### [ee551f5a8f90] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
 *2026-06-05T17:23:06Z*

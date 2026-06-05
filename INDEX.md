@@ -2,8 +2,11 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*39 total records, newest first.*
+*42 total records, newest first.*
 
+- `2026-06-05T18:29:00Z` **outcome** [d79758da1a21] → bet/84f539d9f89b result=success
+- `2026-06-05T18:29:00Z` **bet** [84f539d9f89b] [resolved/success] SOMA Auth v1 (Supabase) ships on Legends without breaking pr
+- `2026-06-05T18:27:33Z` **artifact** [f4d5f5fc4a59] [build] /Users/mikewolf/Projects/soma-platform/packages/auth
 - `2026-06-05T17:57:56Z` **artifact** [95de09078ad5] [report] /Users/mikewolf/Projects/SOMA/SOMA-AUTH-PLAN.md
 - `2026-06-05T17:57:56Z` **decision** [d9ce793848dd] SOMA Auth: build on Supabase, Legends = target zero, owned by Dee
 - `2026-06-05T17:48:37Z` **outcome** [0a1b6e081946] → bet/661dfd3c09e3 result=success

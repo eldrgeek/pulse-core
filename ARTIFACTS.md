@@ -2,7 +2,17 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*10 records, newest first.*
+*11 records, newest first.*
+
+### [f4d5f5fc4a59] [build] /Users/mikewolf/Projects/soma-platform/packages/auth
+*2026-06-05T18:27:33Z*
+
+SOMA Auth v1 (Supabase): wrapper lib + schema + Legends integration (email magic-link, role-gated), graceful-degrading
+
+**Owner:** Dee
+
+
+---
 
 ### [95de09078ad5] [report] /Users/mikewolf/Projects/SOMA/SOMA-AUTH-PLAN.md
 *2026-06-05T17:57:56Z*
