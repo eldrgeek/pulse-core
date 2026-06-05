@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*7 records, newest first.*
+*8 records, newest first.*
+
+### [661dfd3c09e3] OPEN confidence=0.7
+*2026-06-05T17:21:51Z*
+
+**Claim:** The Ariadne extension injects the guide cleanly onto an arbitrary page (e.g. WEC) on toolbar click
+
+**Criteria:** load unpacked → click 🧵 on wolfeducationalconsulting.com → Ariadne widget appears + opens
+
+**Author:** Dee
+
+**Horizon:** Mike's load-test
+
+
+---
 
 ### [105c1b4c359a] RESOLVED/SUCCESS Brier=0.01 confidence=0.9
 *2026-06-05T12:34:10Z*

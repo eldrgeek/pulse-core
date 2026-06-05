@@ -2,8 +2,10 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*31 total records, newest first.*
+*33 total records, newest first.*
 
+- `2026-06-05T17:21:51Z` **bet** [661dfd3c09e3] [open] The Ariadne extension injects the guide cleanly onto an arbi
+- `2026-06-05T17:19:39Z` **artifact** [f1f4449d699e] [build] /Users/mikewolf/Projects/soma-platform/packages/guide-extension
 - `2026-06-05T17:11:16Z` **lesson** [fa3e997a30bb] Mapping economics, real data point (WEC): SSR sites (Squarespace/Wix/WP) map ful
 - `2026-06-05T17:11:16Z` **artifact** [ca4abadb4e3f] [map] /Users/mikewolf/Projects/SOMA/state/wolf-ed/WEC-sitemap.md
 - `2026-06-05T17:04:54Z` **decision** [03369fe85492] Bill gets Yeshie's perceive engine (take the guts out), not a Yeshie dependency

@@ -2,7 +2,17 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*8 records, newest first.*
+*9 records, newest first.*
+
+### [f1f4449d699e] [build] /Users/mikewolf/Projects/soma-platform/packages/guide-extension
+*2026-06-05T17:19:39Z*
+
+SOMA Guide browser extension (Ariadne): injects the soma-guide widget into any page on toolbar click; MV3, least-privilege, bundled engine. UC2 of Bill-as-product.
+
+**Owner:** Dee
+
+
+---
 
 ### [ca4abadb4e3f] [map] /Users/mikewolf/Projects/SOMA/state/wolf-ed/WEC-sitemap.md
 *2026-06-05T17:11:16Z* confidence=0.8
