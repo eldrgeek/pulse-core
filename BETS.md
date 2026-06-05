@@ -18,7 +18,7 @@
 
 ---
 
-### [661dfd3c09e3] OPEN confidence=0.7
+### [661dfd3c09e3] RESOLVED/SUCCESS Brier=0.09 confidence=0.7
 *2026-06-05T17:21:51Z*
 
 **Claim:** The Ariadne extension injects the guide cleanly onto an arbitrary page (e.g. WEC) on toolbar click
@@ -28,6 +28,10 @@
 **Author:** Dee
 
 **Horizon:** Mike's load-test
+
+**Actual:** Mike load-tested: extension injects the widget into an arbitrary page. Gaps: no audio + only a generic 'Welcome' (v1 is a hollow injector — no site knowledge, no walkthrough, intro likely not spoken).
+
+**Notes:** injection thesis proven; next = perceive-port for real content + wire audio
 
 
 ---

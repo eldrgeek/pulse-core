@@ -1,23 +1,23 @@
 # SCOREBOARD
 
-*Auto-generated 2026-06-05T17:23:07Z — do not hand-edit.*
+*Auto-generated 2026-06-05T17:57:56Z — do not hand-edit.*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
 | Total bets | 9 |
-| Resolved | 8 |
-| Open | 1 |
-| Hit rate (success / resolved) | 50% |
-| Mean Brier loss | 0.202 (lower = better calibrated) |
-| Successes / Partials / Fails | 4 / 1 / 3 |
+| Resolved | 9 |
+| Open | 0 |
+| Hit rate (success / resolved) | 56% |
+| Mean Brier loss | 0.189 (lower = better calibrated) |
+| Successes / Partials / Fails | 5 / 1 / 3 |
 
 ## By Author
 
 | Author | Resolved | Hit Rate | Mean Brier |
 |--------|----------|----------|------------|
-| Dee | 8 | 50% | 0.202 |
+| Dee | 9 | 56% | 0.189 |
 
 ## Overconfident Misses (confidence ≥ 0.6, result = fail)
 
@@ -35,10 +35,4 @@
   Claim: blind-dispatching the Hermes kanban dashboard plugin fix to a worker will succeed
   Actual: two workers thrashed 7-16 min with zero writes; root cause was an undocumented internal-token auth layer
   Notes: lesson: don't blind-dispatch undocumented-system spelunking; front-load diagnosis or do it hands-on; see lesson/415f4c464af3
-
-## Open Bets
-
-- **[661dfd3c09e3]** conf=0.7 author=Dee
-  The Ariadne extension injects the guide cleanly onto an arbitrary page (e.g. WEC) on toolbar click
-  horizon: Mike's load-test
 

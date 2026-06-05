@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*3 records, newest first.*
+*4 records, newest first.*
+
+### [d9ce793848dd] SOMA Auth: build on Supabase, Legends = target zero, owned by Dee `yellow`
+*2026-06-05T17:57:56Z*
+
+**Context:** Mike 2026-06-04 discussed SOMA Auth (broker, don't hand-roll); 2026-06-05 flagged nobody was assigned + wants Legends first.
+
+**Options:** Supabase (open GoTrue successor, owned, free) / Clerk (managed, faster, lock-in) / hand-roll (rejected)
+
+**Chosen:** Supabase, Legends target zero
+
+**Rationale:** Supabase = modern GoTrue → natural migration off Netlify Identity; owned + cheap + JWT fits the broker.
+
+
+---
 
 ### [03369fe85492] Bill gets Yeshie's perceive engine (take the guts out), not a Yeshie dependency `yellow`
 *2026-06-05T17:04:54Z*

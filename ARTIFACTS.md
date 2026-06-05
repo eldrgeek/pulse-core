@@ -2,7 +2,19 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*9 records, newest first.*
+*10 records, newest first.*
+
+### [95de09078ad5] [report] /Users/mikewolf/Projects/SOMA/SOMA-AUTH-PLAN.md
+*2026-06-05T17:57:56Z*
+
+SOMA Auth build plan: Supabase foundation, Legends target zero, provisioning checklist (Mike: create project + enable Google), broker architecture.
+
+**Owner:** Dee
+
+**Next:** Mike provisions Supabase project → build packages/auth + Legends integration
+
+
+---
 
 ### [f1f4449d699e] [build] /Users/mikewolf/Projects/soma-platform/packages/guide-extension
 *2026-06-05T17:19:39Z*

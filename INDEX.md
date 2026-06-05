@@ -2,12 +2,15 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*36 total records, newest first.*
+*39 total records, newest first.*
 
+- `2026-06-05T17:57:56Z` **artifact** [95de09078ad5] [report] /Users/mikewolf/Projects/SOMA/SOMA-AUTH-PLAN.md
+- `2026-06-05T17:57:56Z` **decision** [d9ce793848dd] SOMA Auth: build on Supabase, Legends = target zero, owned by Dee
+- `2026-06-05T17:48:37Z` **outcome** [0a1b6e081946] → bet/661dfd3c09e3 result=success
 - `2026-06-05T17:23:07Z` **lesson** [496a34453a40] Part of my 'Yeshie nav is broken' diagnosis was a usage error: my payloads used 
 - `2026-06-05T17:23:07Z` **outcome** [15e6b5eb09b9] → bet/ee551f5a8f90 result=success
 - `2026-06-05T17:23:06Z` **bet** [ee551f5a8f90] [resolved/success] The dispatched Yeshie nav fix restores working navigate+perc
-- `2026-06-05T17:21:51Z` **bet** [661dfd3c09e3] [open] The Ariadne extension injects the guide cleanly onto an arbi
+- `2026-06-05T17:21:51Z` **bet** [661dfd3c09e3] [resolved/success] The Ariadne extension injects the guide cleanly onto an arbi
 - `2026-06-05T17:19:39Z` **artifact** [f1f4449d699e] [build] /Users/mikewolf/Projects/soma-platform/packages/guide-extension
 - `2026-06-05T17:11:16Z` **lesson** [fa3e997a30bb] Mapping economics, real data point (WEC): SSR sites (Squarespace/Wix/WP) map ful
 - `2026-06-05T17:11:16Z` **artifact** [ca4abadb4e3f] [map] /Users/mikewolf/Projects/SOMA/state/wolf-ed/WEC-sitemap.md
