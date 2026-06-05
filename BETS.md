@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*11 records, newest first.*
+*12 records, newest first.*
+
+### [9ee32d628af6] OPEN confidence=0.7
+*2026-06-05T19:07:38Z*
+
+**Claim:** Ariadne persists across same-domain navigations per tab+domain (cross-page memory)
+
+**Criteria:** activate on a domain → navigate same-domain same-tab → she resumes; new tab/other domain clean; dismiss persists
+
+**Author:** Dee
+
+**Horizon:** Mike live test
+
+
+---
 
 ### [ac231ba9aed7] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
 *2026-06-05T18:42:43Z*

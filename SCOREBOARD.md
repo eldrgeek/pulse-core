@@ -1,14 +1,14 @@
 # SCOREBOARD
 
-*Auto-generated 2026-06-05T18:42:43Z — do not hand-edit.*
+*Auto-generated 2026-06-05T19:07:38Z — do not hand-edit.*
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Total bets | 11 |
+| Total bets | 12 |
 | Resolved | 11 |
-| Open | 0 |
+| Open | 1 |
 | Hit rate (success / resolved) | 64% |
 | Mean Brier loss | 0.162 (lower = better calibrated) |
 | Successes / Partials / Fails | 7 / 1 / 3 |
@@ -35,4 +35,10 @@
   Claim: blind-dispatching the Hermes kanban dashboard plugin fix to a worker will succeed
   Actual: two workers thrashed 7-16 min with zero writes; root cause was an undocumented internal-token auth layer
   Notes: lesson: don't blind-dispatch undocumented-system spelunking; front-load diagnosis or do it hands-on; see lesson/415f4c464af3
+
+## Open Bets
+
+- **[9ee32d628af6]** conf=0.7 author=Dee
+  Ariadne persists across same-domain navigations per tab+domain (cross-page memory)
+  horizon: Mike live test
 
