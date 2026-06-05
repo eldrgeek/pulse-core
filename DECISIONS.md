@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*2 records, newest first.*
+*3 records, newest first.*
+
+### [03369fe85492] Bill gets Yeshie's perceive engine (take the guts out), not a Yeshie dependency `yellow`
+*2026-06-05T17:04:54Z*
+
+**Context:** Mike: map WEC via Yeshie + port the mapping capability to Bill; his either/or = port capability vs transplant Yeshie's guts. Live probe found perceive works, Yeshie navigation broken.
+
+**Options:** A) Bill calls Yeshie as a mapping service (depends on Yeshie nav, currently broken); B) Lift Yeshie's perceive engine into Bill + use independent navigation
+
+**Chosen:** B — transplant the perceive guts into Bill; navigation is replaceable
+
+**Rationale:** perceive is the working, valuable, portable primitive; Yeshie's nav is broken and not the moat. Bill owning perceive = the auto-mapper the product thesis needs, without a fragile cross-tool dependency.
+
+
+---
 
 ### [2560a7d0a755] soma-guide unified into soma-platform monorepo + single CDN (soma-guide.netlify.app); both sites repointed `green`
 *2026-06-05T00:52:20Z*

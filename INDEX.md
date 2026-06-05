@@ -2,8 +2,10 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*27 total records, newest first.*
+*29 total records, newest first.*
 
+- `2026-06-05T17:04:54Z` **decision** [03369fe85492] Bill gets Yeshie's perceive engine (take the guts out), not a Yeshie dependency
+- `2026-06-05T17:04:54Z` **lesson** [04fcb83ee1d6] Yeshie's mapping capability splits cleanly: the PERCEIVE engine works well (stru
 - `2026-06-05T12:34:10Z` **outcome** [a8531e9310d8] → bet/105c1b4c359a result=success
 - `2026-06-05T12:34:10Z` **bet** [105c1b4c359a] [resolved/success] gdoc bridge can post attributed AI critiques into a shared G
 - `2026-06-05T12:34:10Z` **lesson** [9dcaa9fbd03e] The gdoc bridge write path WORKED all along (Drive export→mutate→PATCH with driv

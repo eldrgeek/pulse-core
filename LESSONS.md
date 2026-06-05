@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*4 records, newest first.*
+*5 records, newest first.*
+
+### [04fcb83ee1d6]
+*2026-06-05T17:04:54Z*
+
+**What:** Yeshie's mapping capability splits cleanly: the PERCEIVE engine works well (structured affordance extraction per page — buttons/fields/headings/navLinks/forms/tables/title/url), but the relay-driven NAVIGATION is broken right now. 'navigate' returns ok after a fixed ~15s timeout WITHOUT changing the page (perceive then reads the stale active tab, e.g. status.claude.com); 'open_tab' creates a chrome:// tab without loading the target URL; targeting that tab errors 'Cannot access a chrome:// URL'.
+
+**Why:** Determines the port decision: the valuable, reusable, working part of Yeshie-as-mapper is perceive (the 'guts'); navigation is the broken+replaceable part.
+
+**Apply:** Port Yeshie's perceive/affordance-extraction engine into Bill as the mapping primitive; source navigation elsewhere (sitemap/link-crawl + the browser's own nav, or Claude-in-Chrome). To use Yeshie for live mapping today, the extension's navigation needs a reload/fix first.
+
+**Source:** session 2026-06-05 WEC mapping probe
+
+
+---
 
 ### [9dcaa9fbd03e]
 *2026-06-05T12:34:10Z*
