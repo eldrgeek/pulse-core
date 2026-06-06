@@ -2,8 +2,11 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*49 total records, newest first.*
+*52 total records, newest first.*
 
+- `2026-06-06T14:13:43Z` **artifact** [a659fd1a7391] [build] https://vpsmikewolf.duckdns.org/infer/ask
+- `2026-06-06T14:13:43Z` **outcome** [b139f31cf565] → bet/2f48d63cacb7 result=success
+- `2026-06-06T14:13:43Z` **bet** [2f48d63cacb7] [resolved/success] VPS-hosted Haiku inference fixes Bill-for-Greg AND WEC Ariad
 - `2026-06-05T20:53:02Z` **lesson** [31924b21e740] A cc_dispatch worker finished all edits (10 files, tests green on disk) but stal
 - `2026-06-05T20:53:02Z` **outcome** [ea53e8be78b4] → bet/d51ed62cbbf2 result=success
 - `2026-06-05T20:53:02Z` **bet** [d51ed62cbbf2] [resolved/success] Inference-first rethink ships: Bill answers from content, ve

@@ -2,7 +2,17 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*11 records, newest first.*
+*12 records, newest first.*
+
+### [a659fd1a7391] [build] https://vpsmikewolf.duckdns.org/infer/ask
+*2026-06-06T14:13:43Z*
+
+SOMA inference endpoint (VPS, Haiku-backed, public, rate-limited): always-on Q&A for Bill + Ariadne + any SOMA site. Replaces Mike's localhost. Key server-side only.
+
+**Owner:** Dee
+
+
+---
 
 ### [f4d5f5fc4a59] [build] /Users/mikewolf/Projects/soma-platform/packages/auth
 *2026-06-05T18:27:33Z*

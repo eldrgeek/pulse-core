@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*13 records, newest first.*
+*14 records, newest first.*
+
+### [2f48d63cacb7] RESOLVED/SUCCESS Brier=0.0225 confidence=0.85
+*2026-06-06T14:13:43Z*
+
+**Claim:** VPS-hosted Haiku inference fixes Bill-for-Greg AND WEC Ariadne (one endpoint, both)
+
+**Criteria:** public endpoint answers, guardrails, key secure, both configs repointed
+
+**Author:** Dee
+
+**Actual:** https://vpsmikewolf.duckdns.org/infer/ask live (Haiku, verified 'who is the chairman'→Greg Foster); guardrails: max_tokens 400, ctx trunc 6k, daily cap 800, nginx 10/min; key only in /opt/soma-infer/.env 600 (not committed); CORS preflight 204; Bill(Legends prod) + Ariadne configs both point to VPS. Greg's 3/3 done.
+
+
+---
 
 ### [d51ed62cbbf2] RESOLVED/SUCCESS Brier=0.04 confidence=0.8
 *2026-06-05T20:53:02Z*
