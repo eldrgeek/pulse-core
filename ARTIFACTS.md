@@ -2,7 +2,19 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*95 records, newest first.*
+*96 records, newest first.*
+
+### [ca8999f62c1e] [build] github.com/eldrgeek/soma-platform/commit/a8a1bb0
+*2026-06-10T11:06:23Z* confidence=0.95
+
+soma-owner.js v20260610 — Mac-tied owner mode gate. SomaOwner.isOwner() sync, [data-owner-only] auto-hide, ?soma_owner_key= activation, SHA-256 token storage, revoke(). One CDN script tag, zero per-site config. Audit: SOMA/audits/2026-06-10-soma-owner-gate.md
+
+**Owner:** CCc
+
+**Next:** Wire isOwner() into soma-playwriting rep-review tour and any admin panels
+
+
+---
 
 ### [7782ec00314b] [build] ~/Projects/SOMA/tools/soma-eval/run.mjs
 *2026-06-10T02:59:51Z* confidence=0.9

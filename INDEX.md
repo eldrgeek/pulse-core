@@ -2,8 +2,10 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*139 total records, newest first.*
+*141 total records, newest first.*
 
+- `2026-06-10T11:06:35Z` **decision** [ffb40cc85599] soma-owner: sync localStorage compare (build-time SHA-256) over runtime SubtleCrypto
+- `2026-06-10T11:06:23Z` **artifact** [ca8999f62c1e] [build] github.com/eldrgeek/soma-platform/commit/a8a1bb0
 - `2026-06-10T02:59:51Z` **artifact** [7782ec00314b] [build] ~/Projects/SOMA/tools/soma-eval/run.mjs
 - `2026-06-10T02:54:24Z` **artifact** [70cbf5fcc207] [build] pulse-mem ask (pulse-core/pulse-mem)
 - `2026-06-10T02:54:00Z` **artifact** [b8f4f3b57533] [build] pulse-mem ask (pulse-core/pulse-mem)

@@ -2,7 +2,21 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*4 records, newest first.*
+*5 records, newest first.*
+
+### [ffb40cc85599] soma-owner: sync localStorage compare (build-time SHA-256) over runtime SubtleCrypto `green`
+*2026-06-10T11:06:35Z*
+
+**Context:** Owner mode identification for SOMA apps. Secret baked into CDN JS so any runtime crypto is theater. isOwner() must be sync to avoid FOUC.
+
+**Options:** runtime SubtleCrypto HMAC (async, FOUC risk) / build-time SHA-256 comparison (sync, opaque stored token)
+
+**Chosen:** build-time SHA-256; OWNER_TOKEN stored in localStorage; isOwner() is pure sync string compare
+
+**Rationale:** No marginal security gain from runtime crypto when key material is client-side regardless. Sync API avoids race conditions and FOUC.
+
+
+---
 
 ### [d9ce793848dd] SOMA Auth: build on Supabase, Legends = target zero, owned by Dee `yellow`
 *2026-06-05T17:57:56Z*
