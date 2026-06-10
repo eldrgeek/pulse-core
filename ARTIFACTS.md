@@ -2,7 +2,19 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*98 records, newest first.*
+*99 records, newest first.*
+
+### [b54cc8e96979] [skill] ~/.claude/skills/voice-specialist/KNOWLEDGE.md
+*2026-06-10T12:29:30Z*
+
+SOMA Voice Specialist knowledge base v1. Covers Gemini TTS Fast (gemini-2.5-flash-preview-tts) and ElevenLabs (eleven_turbo_v2_5). Includes: 5-voice Gemini experiment results (Aoede chosen for Playcraft), latency curve (35ms/char), PCM→WAV conversion, Netlify Function proxy pattern, cost model, and dispatch instructions for generalists.
+
+**Owner:** voice-specialist
+
+**Next:** add multimodal voice quality assessor; expand ElevenLabs voice roster with quality notes
+
+
+---
 
 ### [daf52daa4aca] [report] soma-ai-manager-rollout
 *2026-06-10T11:42:18Z*

@@ -2,8 +2,12 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*144 total records, newest first.*
+*148 total records, newest first.*
 
+- `2026-06-10T12:39:04Z` **lesson** [7f9b90dea013] cc-dispatch is a bash script; calling python3 cc-dispatch produces a SyntaxError
+- `2026-06-10T12:29:40Z` **lesson** [9bd4dc16bdd7] GEMINI_API_KEY in ~/.hermes/.env is invalid for generativelanguage.googleapis.co
+- `2026-06-10T12:29:40Z` **lesson** [de74018031f3] Gemini TTS Fast has ~35ms/char latency (non-streaming REST). For interactive web
+- `2026-06-10T12:29:30Z` **artifact** [b54cc8e96979] [skill] ~/.claude/skills/voice-specialist/KNOWLEDGE.md
 - `2026-06-10T12:23:51Z` **lesson** [3c233a7c98a2] soma-feedback status lifecycle deployed: received→triaged→in-progress→done; /fee
 - `2026-06-10T11:42:18Z` **artifact** [daf52daa4aca] [report] soma-ai-manager-rollout
 - `2026-06-10T11:09:25Z` **artifact** [c43c38e9f452] [map] specs/frontrow-community-design.md

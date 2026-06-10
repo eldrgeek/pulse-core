@@ -2,7 +2,63 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*13 records, newest first.*
+*17 records, newest first.*
+
+### [7f9b90dea013]
+*2026-06-10T12:39:04Z*
+
+**What:** cc-dispatch is a bash script; calling python3 cc-dispatch produces a SyntaxError on the first apostrophe in the heredoc. This silently killed the soma-state-update and autodream crons for 6 weeks (Apr 27 - Jun 10).
+
+**Why:** Crontab entries were written with an explicit python3 interpreter prefix. cc-dispatch is bash, so python3 parsed it as Python source and choked at line 37 ('Don't fork').
+
+**Apply:** Never prefix cc-dispatch with python3. If a cron-dispatched cc-dispatch job silently produces no output, check whether the crontab invocation uses the wrong interpreter. Verify with: crontab -l | grep cc-dispatch.
+
+**Source:** fable-w2-pulse-synthesis-20260610
+
+
+---
+
+### [9bd4dc16bdd7]
+*2026-06-10T12:29:40Z*
+
+**What:** GEMINI_API_KEY in ~/.hermes/.env is invalid for generativelanguage.googleapis.com. The working key is in ~/Projects/cie/secrets.yaml.
+
+**Why:** Different Google projects — .hermes key is for a different API surface
+
+**Apply:** Always load GEMINI_API_KEY from cie/secrets.yaml for TTS/generativelanguage. Do not use the .hermes key.
+
+**Source:** voice-specialist-v1 / audits/2026-06-10-voice-specialist-v1.md
+
+
+---
+
+### [de74018031f3]
+*2026-06-10T12:29:40Z*
+
+**What:** Gemini TTS Fast has ~35ms/char latency (non-streaming REST). For interactive web UI, ElevenLabs (600ms flat) is 10x faster. Gemini shines for batch/offline audio where expressiveness matters more than latency.
+
+**Why:** Experiment run 2026-06-10: Gemini 5-8s for 180-char sentence vs ElevenLabs 612ms for same text
+
+**Apply:** For any new SOMA voice feature: use ElevenLabs if latency<1s matters; use Gemini TTS for narration/briefings/batch. Truncate Gemini input to 500 chars for interactive contexts.
+
+**Source:** voice-specialist-v1 / audits/2026-06-10-voice-specialist-v1.md
+
+
+---
+
+### [3c233a7c98a2]
+*2026-06-10T12:23:51Z*
+
+**What:** soma-feedback status lifecycle deployed: received→triaged→in-progress→done; /feedback/intake + /feedback/item/:id + PATCH /feedback/:id; review surface now polls status per submitted item; 2 Mike review items seeded as in-progress
+
+**Why:** Mike's feedback was a dead drop — no confirmation it was being acted on. Visible status loop closes the feedback accountability gap.
+
+**Apply:** 
+
+**Source:** soma-feedback/2026-06-10
+
+
+---
 
 ### [05a4ad8822a1]
 *2026-06-10T00:26:47Z*
