@@ -2,140 +2,24 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*12 records, newest first.*
+*90 records, newest first.*
 
-### [a659fd1a7391] [build] https://vpsmikewolf.duckdns.org/infer/ask
-*2026-06-06T14:13:43Z*
+### [d7389d1df90a] [build] services/soma-transcripts/server.js
+*2026-06-10T02:45:30Z* confidence=1.0
 
-SOMA inference endpoint (VPS, Haiku-backed, public, rate-limited): always-on Q&A for Bill + Ariadne + any SOMA site. Replaces Mike's localhost. Key server-side only.
+soma-transcripts v1 LIVE — durable transcript store (port 4250), Session Supervisor with namespace scoping + write-session lock + attribution validation. Schema v1: capability_id/auth_scope/source_provenance/relay_source on every message. Feature flag TRANSCRIPT_WRITE_ENABLED. Izzy (izzy-site relay) + soma-infer (all 5 chat paths) wired. Tenant isolation verified. Fable 5 lead designer. Deployed 2026-06-10.
 
-**Owner:** Dee
-
-
----
-
-### [f4d5f5fc4a59] [build] /Users/mikewolf/Projects/soma-platform/packages/auth
-*2026-06-05T18:27:33Z*
-
-SOMA Auth v1 (Supabase): wrapper lib + schema + Legends integration (email magic-link, role-gated), graceful-degrading
-
-**Owner:** Dee
+**Owner:** CCc+Fable5
 
 
 ---
 
-### [95de09078ad5] [report] /Users/mikewolf/Projects/SOMA/SOMA-AUTH-PLAN.md
-*2026-06-05T17:57:56Z*
+### [9ce4c5ebd87b] [build] services/soma-transcripts
+*2026-06-10T02:45:13Z* confidence=0.95
 
-SOMA Auth build plan: Supabase foundation, Legends target zero, provisioning checklist (Mike: create project + enable Google), broker architecture.
+soma-transcripts v1: durable transcript store, Session Supervisor, schema v1 with typed attribution (capability_id/auth_scope/source_provenance/relay_source), tenant isolation, feature flag. Port 4250. PM2+nginx. Izzy+soma-infer wired. Fable 5 lead designer. Deployed 2026-06-10.
 
-**Owner:** Dee
-
-**Next:** Mike provisions Supabase project → build packages/auth + Legends integration
-
-
----
-
-### [f1f4449d699e] [build] /Users/mikewolf/Projects/soma-platform/packages/guide-extension
-*2026-06-05T17:19:39Z*
-
-SOMA Guide browser extension (Ariadne): injects the soma-guide widget into any page on toolbar click; MV3, least-privilege, bundled engine. UC2 of Bill-as-product.
-
-**Owner:** Dee
-
-
----
-
-### [ca4abadb4e3f] [map] /Users/mikewolf/Projects/SOMA/state/wolf-ed/WEC-sitemap.md
-*2026-06-05T17:11:16Z* confidence=0.8
-
-WEC (wolfeducationalconsulting.com) site map v1: nav tree, page purposes, conversion flow (call→intake→client form→match), resource-guide categories. Mapped via HTTP fetch (SSR).
-
-**Owner:** Dee
-
-**Next:** wolf-ed product logic (brain trust); port perceive to Bill
-
-
----
-
-### [8cd5d2b8d181] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
-*2026-06-05T12:28:54Z*
-
-gdoc bridge v0: CLI for AIs to write attributed suggestions into shared Google Docs (Drive HTML approach, clasp OAuth); v1=per-AI service accounts
-
-**Owner:** Dee
-
-
----
-
-### [87c0ed0cc1d2] [build] /Users/mikewolf/Projects/SOMA/tools/gdoc-bridge
-*2026-06-05T12:27:06Z*
-
-gdoc bridge (append-only, Docs API): AIs write attributed blocks into shared Google Docs; used to post the 4 brain-trust critiques into the cog-arch doc
-
-**Owner:** Dee
-
-
----
-
-### [41d6c77abbc9] [report] https://docs.google.com/document/d/1nUKBj9QCyTyeA2P87bNwnLLVUe0Y6QaSWmv4B9eHSqc/edit
-*2026-06-05T11:59:33Z*
-
-Cognitive Architecture doc v1.1 (editable Google Doc, comment-shared)
-
-**Owner:** Dee
-
-
----
-
-### [f28870d1dd3f] [report] /Users/mikewolf/Projects/SOMA/COGNITIVE-ARCHITECTURE.md
-*2026-06-05T11:42:35Z* confidence=0.6
-
-First-cut SOMA cognitive-architecture doc: team-as-distributed-mind, divergence/convergence thesis, component complementarity, system-survival (keep Mike healthy + add humans), function gap-map
-
-**Owner:** Dee
-
-**Next:** brain-trust widen+critique → v2
-
-
----
-
-### [50827769e54b] [report] ~/Projects/SOMA/state/braintrust-2026-06-bottleneck-tokens/SYNTHESIS.md
-*2026-06-05T00:52:34Z* confidence=1.0
-
-Brain-trust synthesis: 3-model convergence on SOMA bottlenecks — identified Pulse Core (substrate-independent memory) as #1 missing piece and 'the only thing you can't afford to rent'
-
-**Owner:** Gemini / GPT / Claude brain trust
-
-**Freshness:** 2026-06-04
-
-**Next:** Use as seed doc for pulse-core README and initial seeding
-
-
----
-
-### [7b2b7a056d34] [build] https://levinese-preview.netlify.app
-*2026-06-05T00:52:28Z* confidence=0.85
-
-Proteus on Levinese — production corpus search and transcript explorer for the Levinese language documentation project
-
-**Owner:** Mike / Levinese team
-
-**Freshness:** 2026-06-04
-
-
----
-
-### [3cc3e2cbd736] [build] https://vpsmikewolf.duckdns.org/board/
-*2026-06-05T00:52:24Z* confidence=0.9
-
-Dee Board — live VPS supervision dashboard showing worker status, completions, spend, and active agents
-
-**Owner:** Dee
-
-**Freshness:** 2026-06-04
-
-**Next:** Integrate pulse-core artifact/decision counts as dashboard panel
+**Owner:** CCc+Fable5
 
 
 ---

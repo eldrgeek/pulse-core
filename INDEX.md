@@ -2,8 +2,87 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*52 total records, newest first.*
+*131 total records, newest first.*
 
+- `2026-06-10T00:49:16Z` **artifact** [261995d001fa] [report] /Users/mikewolf/Projects/SOMA/specs/fable-soma-plan.md
+- `2026-06-10T00:49:16Z` **artifact** [1721ee700f91] [report] https://docs.google.com/document/d/1SZD6JjfT2wrmOQX-_TCCqEjprfN3FFkMUjcP8LhdihQ/edit
+- `2026-06-10T00:26:47Z` **lesson** [05a4ad8822a1] A worker added resource-settings.js that require()d '@supabase/supabase-js', but
+- `2026-06-09T18:35:30Z` **artifact** [1c0a0e1e17a3] [report] ~/Projects/SOMA/state/proposals/player-benefits-portal-proposal.md
+- `2026-06-09T17:03:07Z` **artifact** [af3a5013f94c] [report] claude-email-daemon--hermes-dispatch-stub
+- `2026-06-09T17:03:07Z` **artifact** [a591330c5766] [report] mcp_agent_mail-vs-mcp_agent_mail_fresh--dual-active-copies
+- `2026-06-09T17:03:07Z` **artifact** [53f20941ed53] [report] pi-mono--badlogic-pi-coding-agent-upstream-fork
+- `2026-06-09T17:03:07Z` **artifact** [d6c74d7b1b0b] [report] wolfchat--livekit-video-chat-app-no-docs-no-git
+- `2026-06-09T17:03:07Z` **artifact** [a2470d25d924] [report] memoruptus--hallelujah-→-memoruptus-musicxml-transform
+- `2026-06-09T17:03:07Z` **artifact** [b3bfb05db9bc] [report] iris-app-web--clerk--stripe--supabase-product-shell
+- `2026-06-09T17:03:07Z` **artifact** [cbe0cd081c5d] [report] error-mining-repo--orphaned-placeholder
+- `2026-06-09T17:03:07Z` **artifact** [a56d4b0cd286] [report] mac-controller-axorcist-swift-rewrite-target
+- `2026-06-09T17:03:07Z` **artifact** [5256e1ad29a5] [report] wacli--released-whatsapp-cli-v081
+- `2026-06-09T17:03:07Z` **artifact** [932cb8964d4e] [report] yeshie-self-improvement-protocol-improvejs
+- `2026-06-09T17:03:07Z` **artifact** [edece11748a9] [report] yeshie-stale-docs---tracked-build-noise-cleanup
+- `2026-06-09T17:03:07Z` **artifact** [47d4acd3cebb] [report] yeshie-expired-session-login-recovery-loop
+- `2026-06-09T17:03:07Z` **artifact** [4f8d2b64693a] [report] yeshie-integration-setup-payload-05-never-run
+- `2026-06-09T17:03:07Z` **artifact** [8a581b7073ac] [report] webwright--terminal-first-browser-web-agent-framework
+- `2026-06-09T17:03:07Z` **artifact** [d2c41a86774e] [report] llms4elders--ai-compadre-landing-page-for-55-audience
+- `2026-06-09T17:03:06Z` **artifact** [866a6f0a5833] [report] lutomski-glass--stained-glass-portfolio-site
+- `2026-06-09T17:03:06Z` **artifact** [39c14d6c7464] [report] nbarpa2--nbarpa-supabase-rewrite-with-guided-onboarding
+- `2026-06-09T17:03:06Z` **artifact** [2fc4061a5fb0] [report] nbarpa--nba-retired-players-association-firebase-app
+- `2026-06-09T17:03:06Z` **artifact** [97b43659d01d] [report] second-breakfast-circle--3d-virtual-circle-room-app
+- `2026-06-09T17:03:06Z` **artifact** [885ff1f1400e] [report] flywheel-skills--flywheel-orchestration-skill-stubs
+- `2026-06-09T17:03:06Z` **artifact** [0a0984625008] [report] pi-skills--cross-agent-skill-collection
+- `2026-06-09T17:03:06Z` **artifact** [c1ad7adc268a] [report] draft-skills--unfinished-claude-code-skills
+- `2026-06-09T17:03:06Z` **artifact** [e3394484e6bb] [report] autoimprove--autonomous-agent-self-optimization-loop-skill
+- `2026-06-09T17:03:06Z` **artifact** [90756a1f6b13] [report] dunnett-companion--dorothy-dunnett-reader-companion-site
+- `2026-06-09T17:03:06Z` **artifact** [662098eba463] [report] singalong--browser-multi-track-overdub-recorder
+- `2026-06-09T17:03:06Z` **artifact** [42a4a2a4de54] [report] origink--voice--image-interview-app
+- `2026-06-09T17:03:06Z` **artifact** [bdc13cd60953] [report] pom--tauri-desktop-app-scaffold
+- `2026-06-09T17:03:06Z` **artifact** [9d88c9dbb68e] [report] cc-dispatch--local-pi-rpc-dispatch-cli-undocumented-in-som
+- `2026-06-09T17:03:06Z` **artifact** [77ca2f1ef5a6] [report] siliconchildrencollab--multi-model-roundtable-runner
+- `2026-06-09T17:03:06Z` **artifact** [b952cc5ed1af] [report] yeshid-docs--acimplus-v2-design--yeshid-strategy-docs
+- `2026-06-09T17:03:06Z` **artifact** [e24cf575f3f1] [report] soma-alarm--build-artifact-only
+- `2026-06-09T17:03:05Z` **artifact** [eb0dab43026e] [report] jiminy--promise-tracking---proof-of-work-daemon
+- `2026-06-09T17:03:05Z` **artifact** [66c319b2d2ec] [report] agent-stuff--pi-skills--extensions-library-mitsupi-npm-pa
+- `2026-06-09T17:03:05Z` **artifact** [2e3217b6ff83] [report] web-automate--learn-execute-heal-browser-automation-framewo
+- `2026-06-09T17:03:05Z` **artifact** [cdd03dfcdeb2] [report] claude-collab-bridge--a2a-multi-agent-thread-store
+- `2026-06-09T17:03:05Z` **artifact** [f9336a36b508] [report] cie--collective-intelligence-engine-fan-out
+- `2026-06-09T17:03:05Z` **artifact** [50cb6a26d604] [report] autoloop--agent-iterative-optimization-runtime
+- `2026-06-09T17:03:05Z` **artifact** [0095710d2198] [report] career-ops-dashboard-tui--built-but-usage-undocumented
+- `2026-06-09T17:03:05Z` **artifact** [c6df62d89629] [report] sidekick-android--b2-b3-morning-brief-and-end-of-day-prep-m
+- `2026-06-09T17:03:05Z` **artifact** [c77e583a5fbd] [report] lumen--medical-portal-aggregator-1-commit-scaffold-only
+- `2026-06-09T17:03:05Z` **artifact** [e4636324cccc] [report] sidekick-mac-cli--attention-icon--http-endpoint-built
+- `2026-06-09T17:03:05Z` **artifact** [6320fd2977ea] [report] sidekick-android-pulsecard-widget--action-handler-not-wired
+- `2026-06-09T17:03:05Z` **artifact** [2eb8a96e47a5] [report] sidekick-android-voice-capture-kvoicecaptureenabled=false
+- `2026-06-09T17:03:05Z` **artifact** [b37c31ee4c1b] [report] soma-platform-guide-extension--ariadne-chrome-extension
+- `2026-06-09T17:03:05Z` **artifact** [961630b70c6a] [report] soma-platform-auth-package--supabase-magic-link-widget
+- `2026-06-09T17:03:05Z` **artifact** [90d07429e548] [report] intoo-lead-gen-system-built-on-career-ops
+- `2026-06-09T17:03:04Z` **artifact** [875c464ef75e] [report] greta-multi-script-engine--career_growth-wellness-onboard
+- `2026-06-09T17:03:04Z` **artifact** [db1e148ef39a] [report] greta-profilebuilder-v05--answer-analysis-engine
+- `2026-06-09T17:03:04Z` **artifact** [7918d335894f] [report] greta-v05--voice-path-tts--stt
+- `2026-06-09T17:03:04Z` **artifact** [6d1f9efa31f2] [report] frontrow-mcp-server-integration
+- `2026-06-09T17:03:04Z` **artifact** [1d75c2d3e812] [report] frontrow-phase-2--5-feature-theater-expansion
+- `2026-06-09T17:03:04Z` **artifact** [d16f6fb75751] [report] pulse-fcm-client-handler--mac-offline-alert
+- `2026-06-09T17:03:04Z` **artifact** [e866adec7028] [report] greta-v1--bidirectional-voice-mode
+- `2026-06-09T17:03:04Z` **artifact** [30e1341b1e22] [report] soma-app-one-prompt-generator
+- `2026-06-09T17:03:04Z` **artifact** [45ba6caf4c0b] [report] pulse-kanban-board
+- `2026-06-09T17:03:04Z` **artifact** [484415c4b1cb] [report] estimation-protocol-v1--calibration-loop-not-wired
+- `2026-06-09T17:03:04Z` **artifact** [6598a55a7ad1] [report] pulse-r8--personal-health--reminders-tracks
+- `2026-06-09T17:03:04Z` **artifact** [2eb97a84a044] [report] soma-mobile-master--limitless-pendant-api-w14
+- `2026-06-09T17:03:04Z` **artifact** [ba5c34675a51] [report] soma-mail-server-v1--dns-cutover-pending
+- `2026-06-09T17:03:04Z` **artifact** [ea8418bd95ce] [report] soma-mail-server-v0
+- `2026-06-09T17:03:04Z` **artifact** [e18d414cc549] [report] permission-nag-system-v1
+- `2026-06-09T17:03:04Z` **artifact** [00523814d88c] [report] heartbeat-pattern-v1--phase-2-expansion
+- `2026-06-09T17:03:03Z` **artifact** [3cb46d094eca] [report] conversational-latency--elevenlabs-soft_timeout-fix
+- `2026-06-09T17:03:03Z` **artifact** [ad3c64c04fb6] [report] full-app-capability-spec-9-surface-coordinator
+- `2026-06-09T17:03:03Z` **artifact** [f38b98b81de2] [report] location-tracking-v1-esp32--tasker
+- `2026-06-09T17:03:03Z` **artifact** [91986dc5978a] [report] tab-harvest-v1--round-2-improvements
+- `2026-06-09T17:03:03Z` **artifact** [e7fb501c32b6] [report] vps-agent-migration
+- `2026-06-09T17:03:03Z` **artifact** [ab0d400b6565] [report] daniel-compute-workload-manager
+- `2026-06-09T17:03:03Z` **artifact** [df30fd023c92] [report] focus-hud-v1
+- `2026-06-09T17:03:03Z` **artifact** [892f0a171490] [report] 3d-cafe--soma-campus-walkable-room
+- `2026-06-06T19:46:49Z` **lesson** [07453ba13ab2] Recurring this session: workers building a VPS service write the CORRECTED code 
+- `2026-06-06T17:35:03Z` **lesson** [33ef5e795f5f] The gdoc-bridge Google project (1072944905499) has the Docs API DISABLED — only 
+- `2026-06-06T15:39:10Z` **lesson** [8b626afd88a3] Worker editing /opt/soma-infer/server.js via SSH wrote a single-quoted JS string
+- `2026-06-06T14:43:56Z` **artifact** [a212d85f7aed] [build] https://izzy-assistant.netlify.app
+- `2026-06-06T14:27:36Z` **artifact** [38d61d559a71] [report] https://docs.google.com/document/d/12_YL95N9lmQ0LbTauthorDKGztxgIOEvVPnCjPoiybM/edit?usp=drivesdk
 - `2026-06-06T14:13:43Z` **artifact** [a659fd1a7391] [build] https://vpsmikewolf.duckdns.org/infer/ask
 - `2026-06-06T14:13:43Z` **outcome** [b139f31cf565] → bet/2f48d63cacb7 result=success
 - `2026-06-06T14:13:43Z` **bet** [2f48d63cacb7] [resolved/success] VPS-hosted Haiku inference fixes Bill-for-Greg AND WEC Ariad

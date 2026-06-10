@@ -2,7 +2,63 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*9 records, newest first.*
+*13 records, newest first.*
+
+### [05a4ad8822a1]
+*2026-06-10T00:26:47Z*
+
+**What:** A worker added resource-settings.js that require()d '@supabase/supabase-js', but the Legends repo's package.json has NO deps — Netlify's function bundler (zip-it-and-ship-it) failed with exit 2, breaking EVERY deploy for ~hours. All committed fixes (Ask Bill, tour, player-benefits, nav) silently never went live, so Greg kept seeing the old broken site.
+
+**Why:** A broken Netlify build fails SILENTLY from the committer's view — git push succeeds, but the deploy errors and the live site stays stale. Easy to mistake 'fix didn't work' for 'fix didn't deploy.'
+
+**Apply:** When a Legends/Netlify fix 'doesn't take' for the user, CHECK THE DEPLOY succeeded before re-fixing the code. Never add an npm require to a Netlify function unless the dep is in package.json (these function repos run deps-free, stdlib only). After adding any function, run a local 'netlify build' or check the deploy log. Build-green is part of 'done'.
+
+**Source:** greg-ask-bill-refix, 2026-06-09
+
+
+---
+
+### [07453ba13ab2]
+*2026-06-06T19:46:49Z*
+
+**What:** Recurring this session: workers building a VPS service write the CORRECTED code locally but stall at the finalize step before redeploying to the VPS and/or committing — leaving a STALE/buggy version running (e.g. soma-knowledge deployed an early 'bad route' router while the fixed server.js sat uncommitted locally; frontend RAG wiring sat uncommitted).
+
+**Why:** The deployed artifact silently diverges from the corrected local source, so health checks pass but real endpoints fail; and uncommitted frontend work never deploys.
+
+**Apply:** When salvaging a stalled VPS-build worker: (1) diff deployed vs local (wc -l + grep a known marker), scp the corrected local file up, node --check, pm2 restart; (2) check git status for uncommitted frontend changes and commit+push; (3) verify the REAL endpoints (ingest/query), not just /health; (4) note env var names — soma-knowledge uses GEMINI_API_KEY (Gemini embeddings), not OpenAI.
+
+**Source:** soma-knowledge-retrieval salvage, 2026-06-06
+
+
+---
+
+### [33ef5e795f5f]
+*2026-06-06T17:35:03Z*
+
+**What:** The gdoc-bridge Google project (1072944905499) has the Docs API DISABLED — only the Drive API is enabled. A worker tried to update a Google Doc in place via the Docs API batchUpdate and stalled on the 403 SERVICE_DISABLED.
+
+**Why:** Docs were CREATED by Drive-importing markdown (Drive auto-converts md→Google Doc), so workers assume Docs API works — it doesn't for this project.
+
+**Apply:** To update a Google Doc's content: use Drive API files().update(fileId, media_body=MediaFileUpload(md,'text/markdown'), body={mimeType:'application/vnd.google-apps.document'}) — re-imports/overwrites and re-converts. To READ a doc: drive files().export(mimeType='text/plain'). Never use docs.googleapis.com batchUpdate with this token. Token: ~/.config/gdoc-bridge/token.json (mw@mike-wolf.com, drive scope).
+
+**Source:** soma-assistant-doc-revise worker stall, 2026-06-06
+
+
+---
+
+### [8b626afd88a3]
+*2026-06-06T15:39:10Z*
+
+**What:** Worker editing /opt/soma-infer/server.js via SSH wrote a single-quoted JS string with a raw apostrophe (shell-escape artifact don'''t) → SyntaxError → pm2 crash-loop (19 restarts) → 502 across Izzy/Bill/Ariadne. Same worker's tight-loop sshpass logins tripped fail2ban → port 22 refused ~10min, blocking recovery.
+
+**Why:** Two compounding self-inflicted failures: an unverified code edit took prod down, and an SSH-hammering pattern locked us out of fixing it.
+
+**Apply:** (1) node --check any JS edited on a server BEFORE pm2 restart; (2) use double-quotes/heredocs not nested-quote sed for code with apostrophes; (3) never tight-loop SSH at a fail2ban host — one key-auth connection or ControlMaster; (4) on 502 read pm2 error log first; (5) sync VPS hotfixes back to the repo to prevent redeploy drift.
+
+**Source:** izzy-fixes-subscription-concise-voicecheck worker, 2026-06-06
+
+
+---
 
 ### [31924b21e740]
 *2026-06-05T20:53:02Z*
