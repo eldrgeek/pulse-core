@@ -2,7 +2,19 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*94 records, newest first.*
+*95 records, newest first.*
+
+### [7782ec00314b] [build] ~/Projects/SOMA/tools/soma-eval/run.mjs
+*2026-06-10T02:59:51Z* confidence=0.9
+
+soma-eval harness F0.0: eval/observability for all live services (soma-infer, soma-knowledge, soma-transcripts). 14/15 tests pass on first run. Designed by Fable 5, applied by Sonnet 4.6.
+
+**Owner:** Fable/CCc
+
+**Freshness:** 2026-06-10
+
+
+---
 
 ### [70cbf5fcc207] [build] pulse-mem ask (pulse-core/pulse-mem)
 *2026-06-10T02:54:24Z* confidence=0.98
