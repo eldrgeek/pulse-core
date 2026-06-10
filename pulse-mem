@@ -123,8 +123,9 @@ def reindex():
     def fmt_artifact(e):
         sup = f" *(supersedes {e['supersedes']})*" if e.get("supersedes") else ""
         conf = f" confidence={e['confidence']}" if e.get("confidence") is not None else ""
+        eid = e.get("id", "?")
         lines = [
-            f"### [{e['id']}] [{e.get('kind', '?')}] {e.get('ref', '(no ref)')}{sup}",
+            f"### [{eid}] [{e.get('kind', '?')}] {e.get('ref', e.get('event', '(no ref)'))}{sup}",
             f"*{e['ts']}*{conf}",
             "",
         ]

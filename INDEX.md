@@ -2,8 +2,15 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*131 total records, newest first.*
+*138 total records, newest first.*
 
+- `2026-06-10T02:54:24Z` **artifact** [70cbf5fcc207] [build] pulse-mem ask (pulse-core/pulse-mem)
+- `2026-06-10T02:54:00Z` **artifact** [b8f4f3b57533] [build] pulse-mem ask (pulse-core/pulse-mem)
+- `2026-06-10T01:45:00Z` **artifact** [playcraft-staging-v1] [staging-deploy] https://soma-playwriting-staging.netlify.app
+- `2026-06-10T02:50:00Z` **artifact** [soma-transcripts-v1] [build] services/soma-transcripts/server.js
+- `2026-06-10T02:45:30Z` **artifact** [d7389d1df90a] [build] services/soma-transcripts/server.js
+- `2026-06-10T02:45:13Z` **artifact** [9ce4c5ebd87b] [build] services/soma-transcripts
+- `2026-06-09T00:00:00.000Z` **artifact** [?] [?] 
 - `2026-06-10T00:49:16Z` **artifact** [261995d001fa] [report] /Users/mikewolf/Projects/SOMA/specs/fable-soma-plan.md
 - `2026-06-10T00:49:16Z` **artifact** [1721ee700f91] [report] https://docs.google.com/document/d/1SZD6JjfT2wrmOQX-_TCCqEjprfN3FFkMUjcP8LhdihQ/edit
 - `2026-06-10T00:26:47Z` **lesson** [05a4ad8822a1] A worker added resource-settings.js that require()d '@supabase/supabase-js', but
