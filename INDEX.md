@@ -2,8 +2,11 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*141 total records, newest first.*
+*144 total records, newest first.*
 
+- `2026-06-10T12:23:51Z` **lesson** [3c233a7c98a2] soma-feedback status lifecycle deployed: received→triaged→in-progress→done; /fee
+- `2026-06-10T11:42:18Z` **artifact** [daf52daa4aca] [report] soma-ai-manager-rollout
+- `2026-06-10T11:09:25Z` **artifact** [c43c38e9f452] [map] specs/frontrow-community-design.md
 - `2026-06-10T11:06:35Z` **decision** [ffb40cc85599] soma-owner: sync localStorage compare (build-time SHA-256) over runtime SubtleCrypto
 - `2026-06-10T11:06:23Z` **artifact** [ca8999f62c1e] [build] github.com/eldrgeek/soma-platform/commit/a8a1bb0
 - `2026-06-10T02:59:51Z` **artifact** [7782ec00314b] [build] ~/Projects/SOMA/tools/soma-eval/run.mjs

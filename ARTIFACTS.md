@@ -2,7 +2,25 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*96 records, newest first.*
+*98 records, newest first.*
+
+### [daf52daa4aca] [report] soma-ai-manager-rollout
+*2026-06-10T11:42:18Z*
+
+SOMA AI Manager deployed to mike-wolf.com, siliconchildren.org (VPS Astro), minds-aligned-soma.netlify.app, ai-wtf-soma.netlify.app — ask + feedback intake live on all 4 properties
+
+
+---
+
+### [c43c38e9f452] [map] specs/frontrow-community-design.md
+*2026-06-10T11:09:25Z*
+
+Fable 5 design: Front Row 3D theater → persistent SOMA community venue. 15 affordances, 3 phases, AI host Remy, Supabase Auth + soma-transcripts. 70-75% R3F code reusable. Phase 1 = 6 weeks to gated Legends room. GDoc: https://docs.google.com/document/d/1yEd-d7kJMuAg51Z4YFZM3cGPsd2vy5irTo5pT3kC-Fg/edit
+
+**Owner:** fable5+ccс
+
+
+---
 
 ### [ca8999f62c1e] [build] github.com/eldrgeek/soma-platform/commit/a8a1bb0
 *2026-06-10T11:06:23Z* confidence=0.95
