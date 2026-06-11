@@ -2,8 +2,9 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*148 total records, newest first.*
+*149 total records, newest first.*
 
+- `2026-06-10T13:45:54Z` **artifact** [86206e1850ce] [report] /Users/mikewolf/Projects/SOMA/specs/PULSE-VISION-2026-06-10.md
 - `2026-06-10T12:39:04Z` **lesson** [7f9b90dea013] cc-dispatch is a bash script; calling python3 cc-dispatch produces a SyntaxError
 - `2026-06-10T12:29:40Z` **lesson** [9bd4dc16bdd7] GEMINI_API_KEY in ~/.hermes/.env is invalid for generativelanguage.googleapis.co
 - `2026-06-10T12:29:40Z` **lesson** [de74018031f3] Gemini TTS Fast has ~35ms/char latency (non-streaming REST). For interactive web

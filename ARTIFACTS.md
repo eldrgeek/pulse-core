@@ -2,7 +2,19 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*99 records, newest first.*
+*100 records, newest first.*
+
+### [86206e1850ce] [report] /Users/mikewolf/Projects/SOMA/specs/PULSE-VISION-2026-06-10.md
+*2026-06-10T13:45:54Z*
+
+Pulse vision canonical: single connection point Web/Mac/Pixel; dispatch to Chat/Cowork/Code with context+tools; all-surface AI interconnect; Mike unintermediated unless danger unseen; FrontRow+Second Breakfast admit AI and human participants without restriction
+
+**Owner:** mike
+
+**Freshness:** 2026-06-10
+
+
+---
 
 ### [b54cc8e96979] [skill] ~/.claude/skills/voice-specialist/KNOWLEDGE.md
 *2026-06-10T12:29:30Z*
