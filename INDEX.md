@@ -2,8 +2,18 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*149 total records, newest first.*
+*159 total records, newest first.*
 
+- `2026-06-11T18:09:22Z` **artifact** [dfe0a958faa4] [build] ~/Projects/SOMA/tools/pulse-briefer/briefer.py
+- `2026-06-11T18:09:13Z` **decision** [f40bfcac9629] Ambition Reflection 2026-06-11: chose Pulse Active Reader / Daily Briefer
+- `2026-06-11T17:57:10Z` **artifact** [26f526c6a80d] [report] ~/Projects/SOMA/specs/do-it-once-pbd.md
+- `2026-06-11T17:12:07Z` **artifact** [af729764fe74] [audit] ~/Projects/SOMA/audits/2026-06-11-have-i-ever-lied-to-an-llm.md
+- `2026-06-11T16:17:07Z` **artifact** [0b64146514d0] [report] ~/Projects/SOMA/specs/silicon-children-rollout.md
+- `2026-06-11T15:59:18Z` **artifact** [474ec9ddd30c] [build] github.com/eldrgeek/silicon-children@697c151
+- `2026-06-11T15:53:01Z` **lesson** [8f3df63c280f] Project Workspaces: soma-owner.js OWNER_TOKEN doubles as API auth token — zero n
+- `2026-06-11T15:52:54Z` **artifact** [651c1546b418] [build] services/soma-workspaces/
+- `2026-06-11T15:48:02Z` **artifact** [cd38d890982a] [audit] ~/Projects/SOMA/SOMA-STATE.md
+- `2026-06-11T15:47:56Z` **artifact** [7eaeb9847fd6] [skill] ~/.claude/skills/intoo-leadgen/SKILL.md
 - `2026-06-10T13:45:54Z` **artifact** [86206e1850ce] [report] /Users/mikewolf/Projects/SOMA/specs/PULSE-VISION-2026-06-10.md
 - `2026-06-10T12:39:04Z` **lesson** [7f9b90dea013] cc-dispatch is a bash script; calling python3 cc-dispatch produces a SyntaxError
 - `2026-06-10T12:29:40Z` **lesson** [9bd4dc16bdd7] GEMINI_API_KEY in ~/.hermes/.env is invalid for generativelanguage.googleapis.co

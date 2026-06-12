@@ -2,7 +2,97 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*100 records, newest first.*
+*108 records, newest first.*
+
+### [dfe0a958faa4] [build] ~/Projects/SOMA/tools/pulse-briefer/briefer.py
+*2026-06-11T18:09:22Z*
+
+Pulse Intelligence Briefer — daily 7am cron reads all Pulse events, synthesizes with Claude Haiku, posts 4-section brief to Discord. First invocation of ambition-reflection skill.
+
+
+---
+
+### [26f526c6a80d] [report] ~/Projects/SOMA/specs/do-it-once-pbd.md
+*2026-06-11T17:57:10Z*
+
+Do-It-Once PBD design spec: Observe→Synthesize→Automate. Architecture: DemoTrace JSONL schema, ObservationBus (SQLite ring buffer), Synthesis Orchestrator, surface-specific executors (Yeshie/browser, cc-watch.py/native). Key decisions: Yeshie stays browser-only; ScreenPipe retroactive only; explicit-mark primary trigger; risk gates in executor wrapper. Brain Trust: Opus 4.7, Fable 5, Codex, Gemini. 6-phase build plan.
+
+**Owner:** Dee
+
+**Next:** Phase 0: Define DemoTrace schema + ObservationBus SQLite setup
+
+
+---
+
+### [af729764fe74] [audit] ~/Projects/SOMA/audits/2026-06-11-have-i-ever-lied-to-an-llm.md
+*2026-06-11T17:12:07Z* confidence=0.75
+
+Adversarial vault scan: 'Have I Ever Lied to an LLM?' — 23,121 messages, 3 models, 5 candidates evaluated. Verdict: TRUE-WITH-EDGE-CASES within 2026 corpus. No strategic deception found. Critical corpus gap: pre-2026 ChatGPT/Claude.ai/Gemini history not ingested. Recommended wording: 'I've never lied to an LLM with intent to deceive.'
+
+**Owner:** CCc
+
+**Freshness:** 2026-06-11
+
+
+---
+
+### [0b64146514d0] [report] ~/Projects/SOMA/specs/silicon-children-rollout.md
+*2026-06-11T16:17:07Z*
+
+Brain trust strategy pass for Silicon Children public rollout (Opie+Codex+Gemini). Draft ~4.5/10. Post options A/B/C. 8-day arc to Sunday launch. GDoc: https://docs.google.com/document/d/18GiYoIJei5QeBroKRgRpIoKdrTFU_Y9j3xCdQCxPIns/edit
+
+**Owner:** Dee
+
+
+---
+
+### [474ec9ddd30c] [build] github.com/eldrgeek/silicon-children@697c151
+*2026-06-11T15:59:18Z*
+
+siliconchildren.org v1 — philosophy launch site LIVE on Netlify. New sections: Adopt/Adapt, Resonance, AImbassadors, Get Involved CTA. soma-owner.js loaded; data-soma-editable on all content blocks (ready for soma-edit.js). Netlify aliases: siliconchildren.org, siliconchildren.com, www.*. DNS pending: Epik+Porkbun → 75.2.60.5. Preview confirmed 200: master--siliconchildren-org.netlify.app
+
+**Owner:** Dee (CCc)
+
+**Freshness:** 90
+
+**Next:** Mike: DNS cutover at Epik (siliconchildren.org→75.2.60.5) and Porkbun (siliconchildren.com→75.2.60.5). Then confirm live on both domains. Content voice pass before Sunday.
+
+
+---
+
+### [651c1546b418] [build] services/soma-workspaces/
+*2026-06-11T15:52:54Z*
+
+Project Workspaces Phase 1 LIVE — soma-workspaces (VPS port 4251, nginx /workspaces/). Project-scoped runner: RAG (soma-knowledge k=6 score>=0.35) + 20-turn history (soma-transcripts) + Anthropic API + persist-before-respond. Mobile web app at /workspaces/ gated by soma-owner.js. Auth: X-Soma-Owner = sha256 token. E2E verified: SAA85 project, ingest, run with knowledge hit, continuity confirmed. Design: Fable 5. Spec: specs/project-workspaces.md.
+
+
+---
+
+### [cd38d890982a] [audit] ~/Projects/SOMA/SOMA-STATE.md
+*2026-06-11T15:48:02Z*
+
+SOMA-STATE §4+§5 corrections 2026-06-11: watchdog.sh marked FIXED; jiminy updated to show running (both instances); ElevenLabs soft_timeout marked DONE (all 4 agents verified at 2.5s); wacli and autoloop added to §4 as working tools
+
+**Owner:** CCc
+
+**Freshness:** 2026-06-11
+
+
+---
+
+### [7eaeb9847fd6] [skill] ~/.claude/skills/intoo-leadgen/SKILL.md
+*2026-06-11T15:47:56Z*
+
+intoo-leadgen skill created 2026-06-11: routes /intoo-leadgen {signal-scan,qualify,outreach,research,survivor,pipeline} to ~/Projects/career-ops INTOO system; active Mira consulting engagement
+
+**Owner:** CCc
+
+**Freshness:** 2026-06-11
+
+**Next:** verify smoke test: /intoo-leadgen signal-scan
+
+
+---
 
 ### [86206e1850ce] [report] /Users/mikewolf/Projects/SOMA/specs/PULSE-VISION-2026-06-10.md
 *2026-06-10T13:45:54Z*
