@@ -2,7 +2,105 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*108 records, newest first.*
+*115 records, newest first.*
+
+### [b9e39c5dbfe6] [build] https://roundtable-app.netlify.app
+*2026-06-14T20:50:42Z* confidence=0.95
+
+Roundtable FULLY WORKING end-to-end (verified by committed E2E 6/6): sign-in, room creation, live Cadence reply via OpenRouter, cost tracking. Fixed prod service-role env. Added /guide (live), responsive desktop+mobile layout, robust JSON errors on all routes, and scripts/e2e.mjs automated test.
+
+**Owner:** Claude (Opus 4.8)
+
+**Freshness:** fresh
+
+**Next:** Publish GCP consent screen for Mark/Nathan/James Google login; invite them; deeper responsive polish
+
+
+---
+
+### [1f3912068e93] [build] https://roundtable-app.netlify.app
+*2026-06-14T19:55:46Z* confidence=0.92
+
+Roundtable: live AI routing + Google sign-in done. Hermes wired via OpenRouter (Hermes' own model backbone) with server-side key on Netlify; verified a real Cadence completion + exact cost. Google OAuth client created in GCP project Mike-Wolf, provider enabled in Supabase via config push (302 confirms active), login UI verified to Google's auth screen.
+
+**Owner:** Claude (Opus 4.8)
+
+**Freshness:** fresh
+
+**Next:** Mike completes Google login once; optionally publish GCP consent screen to production so Mark/Nathan/James can use Google; verify on <=375px phone
+
+
+---
+
+### [31d52d5869d6] [build] https://roundtable-app.netlify.app
+*2026-06-14T18:19:22Z* confidence=0.95
+
+Roundtable FULL APP IS LIVE. Next 15.5.19 on Netlify CI (git-connected soma-roundtable), Supabase backend live (auth+RLS+triggers), routing works (/login 200, /room gated 307). Confirmed host user + profiles trigger + sign-in all verified. AI replies are Hermes dev-stub until gateway wired.
+
+**Owner:** Claude (Opus 4.8)
+
+**Freshness:** fresh
+
+**Next:** Wire Hermes gateway for live model routing; optional Google OAuth; invite Mark/Nathan/James; verify on <=375px phone
+
+
+---
+
+### [ca97eba1b620] [build] https://roundtable-app.netlify.app
+*2026-06-14T16:06:32Z* confidence=0.9
+
+Roundtable FULL APP: Supabase provisioned (ref povdudvojggrmlkxwafc, schema+2 migrations applied, RLS live), Netlify env vars set, Next 15 app builds clean (13 routes), repo pushed to github.com/eldrgeek/soma-roundtable. BLOCKED: routes 404 — Netlify Next runtime registers no routes in headless deploy (manual + cloud-proxy both); needs git-connected CI (GitHub<->Netlify OAuth).
+
+**Owner:** Claude (Opus 4.8)
+
+**Freshness:** fresh
+
+**Next:** Connect soma-roundtable repo to Netlify site roundtable-app (9c984301) for CI build; then smoke-test auth+room+Cadence
+
+
+---
+
+### [0f6a4521b543] [report] https://roundtable-demo.netlify.app
+*2026-06-14T15:15:49Z* confidence=0.95
+
+Roundtable interactive demo LIVE on Netlify (site roundtable-demo, team eldrgeek). Self-contained; ports the real trigger model + manager protocol + budget ladder. Shareable with Mark/Nathan/James. Deployed from Mike's Mac via cc-bridge (sandbox network couldn't fetch npx).
+
+**Owner:** Claude (Opus 4.8)
+
+**Freshness:** fresh
+
+**Next:** Provision Supabase + Hermes to deploy the full gated Next app
+
+
+---
+
+### [abf218dc04b6] [report] /Users/mikewolf/Projects/SOMA/specs/manager-protocol-v1.md
+*2026-06-14T13:15:21Z* confidence=0.9
+
+Reusable Manager Protocol v1 (Alma->Ward): inform|escalate|decide classifier, observe->classify->route->resolve state machine, TS data contracts, 24h timeout + 80/95/100 budget ladder. App-agnostic.
+
+**Owner:** Alma (Roundtable fleet)
+
+**Freshness:** fresh
+
+**Next:** Extract into shared @soma/manager-protocol package once a second app consumes it
+
+
+---
+
+### [517285a25482] [build] /Users/mikewolf/Projects/roundtable
+*2026-06-14T13:15:21Z* confidence=0.9
+
+Roundtable Phase 0 spine (Next.js 15 SOMA-app): Ida(useUser interface)+Cord(gated room/RLS)+Alma(Cadence AI mgr, N-AI participant model, manager protocol)+Ward(host dashboard/escalation inbox)+Norm. Hermes/Supabase/Pulse wired; system_prompt host-only; budget hard-stop. 49 files; core logic 16/16 unit tests.
+
+**Owner:** Claude (Opus 4.8, lead architect)
+
+**Freshness:** fresh
+
+**Next:** Deploy Netlify+Supabase, wire Hermes, verify on a real <=375px phone, hold a Mark/Nathan/James session
+
+
+---
 
 ### [dfe0a958faa4] [build] ~/Projects/SOMA/tools/pulse-briefer/briefer.py
 *2026-06-11T18:09:22Z*

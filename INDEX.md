@@ -2,8 +2,23 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*159 total records, newest first.*
+*174 total records, newest first.*
 
+- `2026-06-14T21:45:27Z` **lesson** [98c150b65dc8] Roundtable's quiet+summonable AI default felt broken to a solo user: addressing 
+- `2026-06-14T21:08:44Z` **lesson** [d7830ef7e4a6] Roundtable's API E2E passed (6/6) while the UI was broken: sending a message 'we
+- `2026-06-14T20:50:42Z` **artifact** [b9e39c5dbfe6] [build] https://roundtable-app.netlify.app
+- `2026-06-14T20:50:42Z` **lesson** [75cd03b8a1bd] Roundtable room creation failed with 'Unexpected end of JSON input' — the /api/r
+- `2026-06-14T19:55:47Z` **lesson** [455f77d44700] For a cloud-deployed SOMA app, 'wiring Hermes' = pointing at OpenRouter (Hermes'
+- `2026-06-14T19:55:46Z` **artifact** [1f3912068e93] [build] https://roundtable-app.netlify.app
+- `2026-06-14T18:19:22Z` **lesson** [af5e405c0d3c] Roundtable's Netlify deploy 404'd through EVERY method (manual, cloud-proxy, eve
+- `2026-06-14T18:19:22Z` **artifact** [31d52d5869d6] [build] https://roundtable-app.netlify.app
+- `2026-06-14T16:06:32Z` **lesson** [b3d0c78466da] Netlify's @netlify/plugin-nextjs (v5) builds the SSR function but does NOT regis
+- `2026-06-14T16:06:32Z` **artifact** [ca97eba1b620] [build] https://roundtable-app.netlify.app
+- `2026-06-14T15:16:02Z` **lesson** [8e1ae80992ca] An adversarial second-AI review of Roundtable caught 5 P0s before any external u
+- `2026-06-14T15:15:49Z` **artifact** [0f6a4521b543] [report] https://roundtable-demo.netlify.app
+- `2026-06-14T13:15:21Z` **artifact** [abf218dc04b6] [report] /Users/mikewolf/Projects/SOMA/specs/manager-protocol-v1.md
+- `2026-06-14T13:15:21Z` **artifact** [517285a25482] [build] /Users/mikewolf/Projects/roundtable
+- `2026-06-14T13:15:08Z` **decision** [3b374e4a06ce] Roundtable Phase 0 spine built; §8 decisions resolved
 - `2026-06-11T18:09:22Z` **artifact** [dfe0a958faa4] [build] ~/Projects/SOMA/tools/pulse-briefer/briefer.py
 - `2026-06-11T18:09:13Z` **decision** [f40bfcac9629] Ambition Reflection 2026-06-11: chose Pulse Active Reader / Daily Briefer
 - `2026-06-11T17:57:10Z` **artifact** [26f526c6a80d] [report] ~/Projects/SOMA/specs/do-it-once-pbd.md
