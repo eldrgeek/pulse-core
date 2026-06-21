@@ -2,8 +2,9 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*174 total records, newest first.*
+*175 total records, newest first.*
 
+- `2026-06-20T19:59:46Z` **decision** [5b203b46268d] DRA: Re Sending Edits And Additions For Playe
 - `2026-06-14T21:45:27Z` **lesson** [98c150b65dc8] Roundtable's quiet+summonable AI default felt broken to a solo user: addressing 
 - `2026-06-14T21:08:44Z` **lesson** [d7830ef7e4a6] Roundtable's API E2E passed (6/6) while the UI was broken: sending a message 'we
 - `2026-06-14T20:50:42Z` **artifact** [b9e39c5dbfe6] [build] https://roundtable-app.netlify.app
