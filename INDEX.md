@@ -2,8 +2,11 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*175 total records, newest first.*
+*178 total records, newest first.*
 
+- `2026-06-30T16:09:26Z` **lesson** [1d423957d1fe] Projects coder routing needs generated registry: added root PROJECT-REGISTRY fro
+- `2026-06-30T14:45:48Z` **lesson** [5ad6ef1edac6] Repaired ~/Projects meta-repo guidance routing: shared capabilities are now firs
+- `2026-06-30T14:36:28Z` **lesson** [96da67f2408d] Assessed ~/Projects navigation docs. START-HERE/ESTATE/_shared provide a good fr
 - `2026-06-20T19:59:46Z` **decision** [5b203b46268d] DRA: Re Sending Edits And Additions For Playe
 - `2026-06-14T21:45:27Z` **lesson** [98c150b65dc8] Roundtable's quiet+summonable AI default felt broken to a solo user: addressing 
 - `2026-06-14T21:08:44Z` **lesson** [d7830ef7e4a6] Roundtable's API E2E passed (6/6) while the UI was broken: sending a message 'we
