@@ -2,8 +2,9 @@
 
 *Auto-generated from store/events.jsonl — do not hand-edit.*
 
-*178 total records, newest first.*
+*179 total records, newest first.*
 
+- `2026-07-01T19:30:10Z` **lesson** [5dd5e8ece23d] Hermes Desktop readability controls: added local Appearance > Readability contro
 - `2026-06-30T16:09:26Z` **lesson** [1d423957d1fe] Projects coder routing needs generated registry: added root PROJECT-REGISTRY fro
 - `2026-06-30T14:45:48Z` **lesson** [5ad6ef1edac6] Repaired ~/Projects meta-repo guidance routing: shared capabilities are now firs
 - `2026-06-30T14:36:28Z` **lesson** [96da67f2408d] Assessed ~/Projects navigation docs. START-HERE/ESTATE/_shared provide a good fr
